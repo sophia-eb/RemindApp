@@ -31,7 +31,7 @@ const weatherUrl7day = "https://devapi.qweather.com/v7/weather/7d?";
 
 export async function get7daysWeather() {
   const location = "101190401"; //suzhou
-  const url = weatherUrl24h + "key=" + key + "&location=" + location;
+  const url = weatherUrl3day + "key=" + key + "&location=" + location;
 
   return axios({
     method: "get",

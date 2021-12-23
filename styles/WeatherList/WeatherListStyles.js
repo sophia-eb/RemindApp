@@ -19,13 +19,6 @@ module.exports = StyleSheet.create({
     marginVertical: 8,
     padding: 14,
   },
-  // viewContainer: {
-  //   flex: 1,
-  //   // backgroundColor: "#b8e3ff",
-  //   display: "flex",
-  //   overflowX: "scroll",
-  //   padding: 20,
-  // },
   cardTitle: {
     fontSize: 18,
     paddingVertical: 6,

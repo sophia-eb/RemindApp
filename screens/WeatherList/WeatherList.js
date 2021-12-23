@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Text, ScrollView, View, Image } from "react-native";
-// import { Card } from 'react-native-elements';
+import { Text, ScrollView, View } from "react-native";
 import styles from "../../styles/WeatherList/WeatherListStyles";
 import { getNowWeather, get24hWeather, get7daysWeather } from "../../utils/apiUtils";
 import CustomChart from "./CustomChart";
