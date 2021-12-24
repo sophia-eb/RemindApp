@@ -11,7 +11,7 @@ module.exports = StyleSheet.create({
   },
   bakImage: {
     flex: 1,
-    height: 400,
+    height: 420,
     justifyContent: "center",
   },
   centerTempText: {
@@ -37,7 +37,7 @@ module.exports = StyleSheet.create({
   },
   chartContainer: {
     position: "relative",
-    left: -20,
+    left: -26,
   },
   cardTitle: {
     fontSize: 18,
@@ -61,19 +61,17 @@ module.exports = StyleSheet.create({
     width: 150,
     textAlign: "center",
   },
-  // wrapContent: {
-  //   display: "flex",
-  //   flexWrap: "wrap",
-  //   alignContent: "space-around",
-  //   justifyContent: "center",
-  //   height: 20,
-  // },
   wrapView: {
-    width: 150,
+    width: 116,
+    height: 48,
     textAlign: "left",
   },
-  wrapText: {
+  wrapTextName: {
     fontSize: 14,
+    lineHeight: 22,
+  },
+  wrapText: {
+    fontSize: 16,
     lineHeight: 20,
     color: "#0583d2",
   },
