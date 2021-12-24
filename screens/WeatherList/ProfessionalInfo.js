@@ -1,7 +1,7 @@
 import React from "react";
 import commonStyles from "../../styles/WeatherList/WeatherListStyles";
 import styles from "../../styles/WeatherList/ProfessionalInfoStyles";
-import { Text, View } from "react-native";
+import { Image, Text, View } from "react-native";
 
 const ProfessionalInfo = props => {
   const { weatherInfoNow } = props;
@@ -12,6 +12,12 @@ const ProfessionalInfo = props => {
         专业数据
       </Text>
       <View style={styles.wrapContainer}>
+        <View style={styles.iconView}>
+          <Image
+            source={require("../../images/professional-info/atmospheric-pressure.png")}
+            style={styles.iconStyle}
+          />
+        </View>
         <View style={styles.wrapView}>
           <Text style={commonStyles.wrapTextName}>
             大气压强
@@ -19,6 +25,12 @@ const ProfessionalInfo = props => {
           <Text style={styles.wrapText}>
             {weatherInfoNow.pressure} hPa
           </Text>
+        </View>
+        <View style={styles.iconView}>
+          <Image
+            source={require("../../images/professional-info/visibility.png")}
+            style={styles.iconStyle}
+          />
         </View>
         <View style={styles.wrapView}>
           <Text style={commonStyles.wrapTextName}>
@@ -30,6 +42,12 @@ const ProfessionalInfo = props => {
         </View>
       </View>
       <View style={styles.wrapContainer}>
+        <View style={styles.iconView}>
+          <Image
+            source={require("../../images/professional-info/cloud.png")}
+            style={styles.iconStyle}
+          />
+        </View>
         <View style={styles.wrapView}>
           <Text style={commonStyles.wrapTextName}>
             云量
@@ -37,6 +55,12 @@ const ProfessionalInfo = props => {
           <Text style={styles.wrapText}>
             {weatherInfoNow.cloud} %
           </Text>
+        </View>
+        <View style={styles.iconView}>
+          <Image
+            source={require("../../images/professional-info/dew-point.png")}
+            style={styles.iconStyle}
+          />
         </View>
         <View style={styles.wrapView}>
           <Text style={commonStyles.wrapTextName}>

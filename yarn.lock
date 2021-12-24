@@ -5543,6 +5543,11 @@ query-string@^7.0.0:
     split-on-first "^1.0.0"
     strict-uri-encode "^2.0.0"
 
+qweather-icons@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/qweather-icons/-/qweather-icons-1.1.0.tgz#38b5336cb3dcee53bbc6cdd2174685c4f1d85c08"
+  integrity sha512-8AqL5oKLlCGxqHLZBusB6mHiRJxOxSpv7lnLWQmVjGSEITVP6gv56y/TFRnNNqo9nz1d0UaZvDSsP7W3o5Encw==
+
 range-parser@~1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.1.tgz#3cf37023d199e1c24d1a55b84800c2f3e6468031"
