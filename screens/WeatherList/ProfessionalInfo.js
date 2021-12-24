@@ -8,9 +8,18 @@ const ProfessionalInfo = props => {
 
   return (
     <View style={commonStyles.cardContainer}>
-      <Text style={commonStyles.cardTitle}>
-        专业数据
-      </Text>
+      <View style={{ flexDirection: "row" }}>
+        <Text style={commonStyles.cardTitle}>
+          33提醒你
+        </Text>
+        <Image
+          source={require("../../images/heart.png")}
+          style={{ width: 20, height: 20, marginTop: 6, marginHorizontal: 4 }}
+        />
+        <Text style={commonStyles.cardTitle}>
+          专业数据
+        </Text>
+      </View>
       <View style={styles.wrapContainer}>
         <View style={styles.iconView}>
           <Image

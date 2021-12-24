@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Text, ScrollView, View } from "react-native";
+import { Text, ScrollView, View, TouchableOpacity, Image } from "react-native";
 import styles from "../../styles/WeatherList/WeatherListStyles";
 import { getNowWeather } from "../../utils/apiUtils";
 import Weather7days from "./Weather7days";
@@ -7,9 +7,12 @@ import WeatherHourly from "./WeatherHourly";
 import WeatherNow from "./WeatherNow";
 import ProfessionalInfo from "./ProfessionalInfo";
 import LivingIndices from "./LivingIndices";
+import { ROUTES } from "../../Constants";
 
 
-const WeatherList = () => {
+const WeatherList = props => {
+  const {navigation} = props;
+
   const defaultWeatherInfoNow = {
     "cloud": "0",
     "dew": "4",
@@ -40,6 +43,10 @@ const WeatherList = () => {
     return () => {};
   }, []);
 
+  const onGoingReward = () => {
+    navigation.navigate(ROUTES.REWARD_AREA, {screen: ROUTES.REWARD_AREA});
+  };
+
   return (
     <ScrollView style={styles.container}>
       <WeatherNow weatherInfoNow={weatherInfoNow}/>
@@ -47,6 +54,15 @@ const WeatherList = () => {
       <Weather7days />
       <LivingIndices />
       <ProfessionalInfo weatherInfoNow={weatherInfoNow}/>
+      <TouchableOpacity style={styles.cardContainer} onPress={() => onGoingReward()}>
+        <View style={{ flexDirection: "row" }}>
+          <Image
+            source={require("../../images/reward.png")}
+            style={{ width: 65 }}
+          />
+          <Text style={{ paddingVertical: 24, paddingLeft: 10 }}>作者辛苦啦，打赏一下吧^^</Text>
+        </View>
+      </TouchableOpacity>
     </ScrollView>
   );
 };

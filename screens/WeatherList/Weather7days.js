@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Text, ScrollView, View } from "react-native";
+import { Text, View, Image } from "react-native";
 import { get7daysWeather } from "../../utils/apiUtils";
 import styles from "../../styles/WeatherList/WeatherListStyles";
 import CustomChart from "./CustomChart";
@@ -35,9 +35,18 @@ const Weather7days = () => {
 
   return (
     <View style={styles.cardContainer}>
-      <Text style={styles.cardTitle}>
-        未来7天
-      </Text>
+      <View style={{ flexDirection: "row" }}>
+        <Text style={styles.cardTitle}>
+          33提醒你
+        </Text>
+        <Image
+          source={require("../../images/heart.png")}
+          style={{ width: 20, height: 20, marginTop: 6, marginHorizontal: 4 }}
+        />
+        <Text style={styles.cardTitle}>
+          未来7天
+        </Text>
+      </View>
       <View style={styles.chartContainer}>
         { weatherInfo7dError ? <ErrorMessage /> : <CustomChart data={data}/>}
       </View>

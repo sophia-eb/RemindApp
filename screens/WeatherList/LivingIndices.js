@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "../../styles/WeatherList/WeatherListStyles";
-import { FlatList, Text, View } from "react-native";
+import { FlatList, Image, Text, View } from "react-native";
 import { getLivingIndices } from "../../utils/apiUtils";
 
 const LivingIndices = () => {
@@ -50,9 +50,18 @@ const LivingIndices = () => {
 
   return (
     <View style={styles.cardContainer}>
-      <Text style={styles.cardTitle}>
-        生活指数
-      </Text>
+      <View style={{ flexDirection: "row" }}>
+        <Text style={styles.cardTitle}>
+          33提醒你
+        </Text>
+        <Image
+          source={require("../../images/heart.png")}
+          style={{ width: 20, height: 20, marginTop: 6, marginHorizontal: 4 }}
+        />
+        <Text style={styles.cardTitle}>
+          生活指数
+        </Text>
+      </View>
       <View>
         { renderList() }
       </View>
