@@ -7,13 +7,10 @@ import { ImageBackground, Text, View } from "react-native";
 
 const WeatherNow = props => {
   const { weatherInfoNow } = props;
-  const [bakImage, setBakImage] = useState("");
+  // const [bakImage, setBakImage] = useState("");
 
-  // console.log(<SvgUri uri={require("../../icons/100.svg")} width="100%" height="100%"/>, "========");
   let image = require("../../images/day.jpeg");
 
-  // console.log(new Date(), "============");
-  //
   // useEffect(() => {
   //   getSun().then(res => {
   //     console.log(res.data, "===============data============");
