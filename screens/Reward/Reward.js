@@ -11,7 +11,7 @@ const RewardArea = () => {
           <Image
             source={require("../../images/reward/love.png")}
           />
-          <Text style={{ paddingVertical: 24 }}>您的支持是作者更新的动力❤️爱你❤</Text>
+          <Text style={{ paddingVertical: 24 }}>您的支持是更新的动力❤️爱你❤️</Text>
         </View>
         <Image
           source={require("../../images/reward/wechat.jpeg")}

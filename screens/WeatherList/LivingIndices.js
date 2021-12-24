@@ -33,7 +33,7 @@ const LivingIndices = () => {
     return livingIndices.map((indicesItem, index) => {
       dataDump.push(indicesItem);
       data = dataDump;
-      if ((index + 1) % 3 === 0) {
+      if ((index + 1) % 2 === 0) {
         dataDump = [];
         return (<FlatList
           horizontal={true}
@@ -56,7 +56,7 @@ const LivingIndices = () => {
         </Text>
         <Image
           source={require("../../images/heart.png")}
-          style={{ width: 20, height: 20, marginTop: 6, marginHorizontal: 4 }}
+          style={{ width: 20, height: 20, marginTop: 10, marginHorizontal: 4 }}
         />
         <Text style={styles.cardTitle}>
           生活指数

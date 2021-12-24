@@ -63,7 +63,7 @@ module.exports = StyleSheet.create({
     textAlign: "center",
   },
   wrapView: {
-    width: 116,
+    width: 160,
     height: 48,
     textAlign: "left",
   },

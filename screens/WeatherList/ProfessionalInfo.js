@@ -14,7 +14,7 @@ const ProfessionalInfo = props => {
         </Text>
         <Image
           source={require("../../images/heart.png")}
-          style={{ width: 20, height: 20, marginTop: 6, marginHorizontal: 4 }}
+          style={{ width: 20, height: 20, marginTop: 10, marginHorizontal: 4 }}
         />
         <Text style={commonStyles.cardTitle}>
           专业数据

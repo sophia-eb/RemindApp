@@ -41,7 +41,7 @@ const Weather7days = () => {
         </Text>
         <Image
           source={require("../../images/heart.png")}
-          style={{ width: 20, height: 20, marginTop: 6, marginHorizontal: 4 }}
+          style={{ width: 20, height: 20, marginTop: 10, marginHorizontal: 4 }}
         />
         <Text style={styles.cardTitle}>
           未来7天

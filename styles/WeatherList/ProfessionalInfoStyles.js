@@ -7,7 +7,7 @@ module.exports = StyleSheet.create({
     alignContent: "space-around",
     justifyContent: "center",
     width: "auto",
-    height: 46,
+    height: 54,
   },
   wrapView: {
     width: 116,
