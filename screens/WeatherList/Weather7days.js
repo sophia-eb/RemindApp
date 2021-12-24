@@ -13,15 +13,15 @@ const Weather7days = () => {
   const [weatherInfo7dError, setWeatherInfo7dError] = useState(false);
 
   useEffect(() => {
-    // get7daysWeather().then((res) => {
-    //   // console.log(res.data, "=======data=========");
-    //   if (res.data.code === "200") {
-    //     setWeatherInfo7dError(false);
-    //     setWeatherInfo7d(res.data.daily);
-    //   } else {
-    //     setWeatherInfo7dError(true);
-    //   }
-    // });
+    get7daysWeather().then((res) => {
+      // console.log(res.data, "=======data=========");
+      if (res.data.code === "200") {
+        setWeatherInfo7dError(false);
+        setWeatherInfo7d(res.data.daily);
+      } else {
+        setWeatherInfo7dError(true);
+      }
+    });
   }, []);
 
   let data = [];

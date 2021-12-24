@@ -13,15 +13,15 @@ const WeatherHourly = () => {
   const [weatherInfo24hError, setWeatherInfo24hError] = useState(false);
 
   useEffect(() => {
-    // get24hWeather().then(res => {
-    //   // console.log(res.data, "=======data=========");
-    //   if (res.data.code === "200") {
-    //     setWeatherInfo24hError(false);
-    //     setWeatherInfo24h(res.data.hourly);
-    //   } else {
-    //     setWeatherInfo24hError(true);
-    //   }
-    // });
+    get24hWeather().then(res => {
+      // console.log(res.data, "=======data=========");
+      if (res.data.code === "200") {
+        setWeatherInfo24hError(false);
+        setWeatherInfo24h(res.data.hourly);
+      } else {
+        setWeatherInfo24hError(true);
+      }
+    });
     return () => {};
   }, []);
 

@@ -8,7 +8,8 @@ const key = "db11be461e024ddf890b8cf02baa548c";
 // shanghai 101020100
 // shenzhen 101280601
 // nanshan 101280604
-const location = "101190401"; //suzhou
+// suzhou 101190401
+const location = "101280601"; //shenzhen
 
 export async function getNowWeather() {
   const url = nowWeatherUrl + "key=" + key + "&location=" + location;

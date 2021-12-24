@@ -31,12 +31,12 @@ const WeatherList = () => {
   const [weatherInfoNow, setWeatherInfoNow] = useState(defaultWeatherInfoNow);
 
   useEffect(() => {
-    // getNowWeather().then((res) => {
-    //   // console.log(res.data, "=======data=========");
-    //   if (res.data.code === "200") {
-    //     setWeatherInfoNow(res.data.now);
-    //   }
-    // });
+    getNowWeather().then((res) => {
+      // console.log(res.data, "=======data=========");
+      if (res.data.code === "200") {
+        setWeatherInfoNow(res.data.now);
+      }
+    });
     return () => {};
   }, []);
 

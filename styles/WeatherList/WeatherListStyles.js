@@ -16,12 +16,13 @@ module.exports = StyleSheet.create({
   },
   centerTempText: {
     textAlign: "center",
-    fontSize: 50,
+    fontSize: 60,
     color: "#fc8955",
   },
   centerText: {
     textAlign: "center",
     fontSize: 18,
+    lineHeight: 20,
     paddingBottom: 10,
     color: "#fc8955",
   },
