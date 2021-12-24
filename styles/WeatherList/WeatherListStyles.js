@@ -9,6 +9,22 @@ module.exports = StyleSheet.create({
     flex: 1,
     backgroundColor: "#f4f4f4",
   },
+  bakImage: {
+    flex: 1,
+    height: 400,
+    justifyContent: "center",
+  },
+  centerTempText: {
+    textAlign: "center",
+    fontSize: 50,
+    color: "#fc8955",
+  },
+  centerText: {
+    textAlign: "center",
+    fontSize: 18,
+    paddingBottom: 10,
+    color: "#fc8955",
+  },
   cardContainer: {
     flex: 1,
     backgroundColor: "#ffffff",
@@ -19,20 +35,13 @@ module.exports = StyleSheet.create({
     marginVertical: 8,
     padding: 14,
   },
+  chartContainer: {
+    position: "relative",
+    left: -20,
+  },
   cardTitle: {
     fontSize: 18,
     paddingVertical: 6,
-    color: "#fc8955",
-  },
-  centerTempText: {
-    textAlign: "center",
-    fontSize: 36,
-    color: "#fc8955",
-  },
-  centerText: {
-    textAlign: "center",
-    fontSize: 16,
-    paddingBottom: 10,
     color: "#fc8955",
   },
   wrapContainer: {
@@ -66,5 +75,6 @@ module.exports = StyleSheet.create({
   wrapText: {
     fontSize: 14,
     lineHeight: 20,
+    color: "#0583d2",
   },
 });

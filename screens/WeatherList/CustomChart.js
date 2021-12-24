@@ -6,9 +6,9 @@ const CustomChart = props => {
   const { data } = props;
   return (
     <VictoryChart
-      width={380}
+      width={400}
       height={200}
-      domainPadding={{x: 10, y: 6}}
+      domainPadding={{x: 10, y: 10}}
       >
       {data[0]?.temp &&
         <VictoryLine

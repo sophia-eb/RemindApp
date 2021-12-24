@@ -13,20 +13,17 @@ const Weather7days = () => {
   const [weatherInfo7dError, setWeatherInfo7dError] = useState(false);
 
   useEffect(() => {
-    get7daysWeather().then((res) => {
-      // console.log(res.data, "=======data=========");
-      if (res.data.code === 200) {
-        setWeatherInfo7dError(false);
-        setWeatherInfo7d(res.data.daily);
-      } else {
-        setWeatherInfo7dError(true);
-      }
-    });
+    // get7daysWeather().then((res) => {
+    //   // console.log(res.data, "=======data=========");
+    //   if (res.data.code === "200") {
+    //     setWeatherInfo7dError(false);
+    //     setWeatherInfo7d(res.data.daily);
+    //   } else {
+    //     setWeatherInfo7dError(true);
+    //   }
+    // });
   }, []);
 
-  if (weatherInfo7dError) {
-    return <ErrorMessage />;
-  }
   let data = [];
   weatherInfo7d.forEach(item => {
     const re = new RegExp(".+-(.+-.+)");
@@ -39,9 +36,11 @@ const Weather7days = () => {
   return (
     <View style={styles.cardContainer}>
       <Text style={styles.cardTitle}>
-        未来7天de天气是酱紫哒～o～
+        未来7天
       </Text>
-      <CustomChart data={data}/>
+      <View style={styles.chartContainer}>
+        { weatherInfo7dError ? <ErrorMessage /> : <CustomChart data={data}/>}
+      </View>
     </View>
   );
 };

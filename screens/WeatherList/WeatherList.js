@@ -6,7 +6,7 @@ import Weather7days from "./Weather7days";
 import WeatherHourly from "./WeatherHourly";
 import WeatherNow from "./WeatherNow";
 import ProfessionalInfo from "./ProfessionalInfo";
-// import WeatherIcon from "../../icons/100.svg";
+import LivingIndices from "./LivingIndices";
 
 
 const WeatherList = () => {
@@ -31,12 +31,12 @@ const WeatherList = () => {
   const [weatherInfoNow, setWeatherInfoNow] = useState(defaultWeatherInfoNow);
 
   useEffect(() => {
-    getNowWeather().then((res) => {
-      // console.log(res.data, "=======data=========");
-      if (res.data.code === 200) {
-        setWeatherInfoNow(res.data.now);
-      }
-    });
+    // getNowWeather().then((res) => {
+    //   // console.log(res.data, "=======data=========");
+    //   if (res.data.code === "200") {
+    //     setWeatherInfoNow(res.data.now);
+    //   }
+    // });
     return () => {};
   }, []);
 
@@ -45,6 +45,7 @@ const WeatherList = () => {
       <WeatherNow weatherInfoNow={weatherInfoNow}/>
       <WeatherHourly />
       <Weather7days />
+      <LivingIndices />
       <ProfessionalInfo weatherInfoNow={weatherInfoNow}/>
     </ScrollView>
   );

@@ -13,22 +13,19 @@ const WeatherHourly = () => {
   const [weatherInfo24hError, setWeatherInfo24hError] = useState(false);
 
   useEffect(() => {
-    get24hWeather().then(res => {
-      // console.log(res.data, "=======data=========");
-      if (res.data.code === 200) {
-        setWeatherInfo24hError(false);
-        setWeatherInfo24h(res.data.hourly);
-      } else {
-        setWeatherInfo24hError(true);
-      }
-    });
+    // get24hWeather().then(res => {
+    //   // console.log(res.data, "=======data=========");
+    //   if (res.data.code === "200") {
+    //     setWeatherInfo24hError(false);
+    //     setWeatherInfo24h(res.data.hourly);
+    //   } else {
+    //     setWeatherInfo24hError(true);
+    //   }
+    // });
     return () => {};
   }, []);
 
   let data = [];
-  if (weatherInfo24hError) {
-    return <ErrorMessage />;
-  }
   weatherInfo24h.forEach(item => {
     const re = new RegExp(".+T(.+):.+\\+.+");
     const time = item.fxTime.match(re);
@@ -41,7 +38,9 @@ const WeatherHourly = () => {
       <Text style={styles.cardTitle}>
         逐小时预报
       </Text>
-      <CustomChart data={data}/>
+      <View style={styles.chartContainer}>
+        { weatherInfo24hError ? <ErrorMessage /> : <CustomChart data={data}/>}
+      </View>
     </View>
   );
 };
