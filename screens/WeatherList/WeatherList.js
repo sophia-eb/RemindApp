@@ -14,6 +14,8 @@ const WeatherList = props => {
   const {navigation, route} = props;
   const cityId = route?.params ? route?.params.cityId : null;
 
+  console.log(cityId, "++++++++++cityId++++++++++++++");
+
   const defaultWeatherInfoNow = {
     "cloud": "0",
     "dew": "4",
