@@ -11,7 +11,8 @@ import { ROUTES } from "../../Constants";
 
 
 const WeatherList = props => {
-  const {navigation} = props;
+  const {navigation, route} = props;
+  const cityId = route?.params ? route?.params.cityId : null;
 
   const defaultWeatherInfoNow = {
     "cloud": "0",
@@ -34,7 +35,7 @@ const WeatherList = props => {
   const [weatherInfoNow, setWeatherInfoNow] = useState(defaultWeatherInfoNow);
 
   useEffect(() => {
-    getNowWeather().then((res) => {
+    cityId && getNowWeather(cityId).then((res) => {
       // console.log(res.data, "=======data=========");
       if (res.data.code === "200") {
         setWeatherInfoNow(res.data.now);
@@ -43,18 +44,18 @@ const WeatherList = props => {
     return () => {};
   }, []);
 
-  const onGoingReward = () => {
+  const navigateToReward = () => {
     navigation.navigate(ROUTES.REWARD_AREA, {screen: ROUTES.REWARD_AREA});
   };
 
   return (
     <ScrollView style={styles.container}>
       <WeatherNow weatherInfoNow={weatherInfoNow}/>
-      <WeatherHourly />
-      <Weather7days />
-      <LivingIndices />
+      <WeatherHourly cityId={cityId}/>
+      <Weather7days cityId={cityId}/>
+      <LivingIndices cityId={cityId}/>
       <ProfessionalInfo weatherInfoNow={weatherInfoNow}/>
-      <TouchableOpacity style={styles.cardContainer} onPress={() => onGoingReward()}>
+      <TouchableOpacity style={styles.cardContainer} onPress={() => navigateToReward()}>
         <View style={{ flexDirection: "row" }}>
           <Image
             source={require("../../images/reward.png")}

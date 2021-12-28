@@ -9,10 +9,10 @@ const key = "db11be461e024ddf890b8cf02baa548c";
 // shenzhen 101280601
 // nanshan 101280604
 // suzhou 101190401
-const location = "101280601"; //shenzhen
+// const location = "101280601"; //shenzhen
 
-export async function getNowWeather() {
-  const url = nowWeatherUrl + "key=" + key + "&location=" + location;
+export async function getNowWeather(cityId) {
+  const url = nowWeatherUrl + "key=" + key + "&location=" + cityId;
   return axios({
     method: "get",
     url: url,
@@ -21,8 +21,8 @@ export async function getNowWeather() {
 
 const weatherUrl24h = "https://devapi.qweather.com/v7/weather/24h?";
 
-export async function get24hWeather() {
-  const url = weatherUrl24h + "key=" + key + "&location=" + location;
+export async function get24hWeather(cityId) {
+  const url = weatherUrl24h + "key=" + key + "&location=" + cityId;
 
   return axios({
     method: "get",
@@ -33,8 +33,8 @@ export async function get24hWeather() {
 const weatherUrl3day = "https://devapi.qweather.com/v7/weather/3d?";
 const weatherUrl7day = "https://devapi.qweather.com/v7/weather/7d?";
 
-export async function get7daysWeather() {
-  const url = weatherUrl7day + "key=" + key + "&location=" + location;
+export async function get7daysWeather(cityId) {
+  const url = weatherUrl7day + "key=" + key + "&location=" + cityId;
 
   return axios({
     method: "get",
@@ -44,8 +44,8 @@ export async function get7daysWeather() {
 
 const weatherWarning = "https://devapi.qweather.com/v7/warning/now?";
 
-export async function getWeatherWarning() {
-  const url = weatherWarning + "key=" + key + "&location=" + location;
+export async function getWeatherWarning(cityId) {
+  const url = weatherWarning + "key=" + key + "&location=" + cityId;
 
   return axios({
     method: "get",
@@ -55,8 +55,8 @@ export async function getWeatherWarning() {
 
 const livingIndices = "https://devapi.qweather.com/v7/indices/1d?";
 
-export async function getLivingIndices() {
-  const url = livingIndices + "key=" + key + "&location=" + location + "&type=1,3,5,8,9,11";
+export async function getLivingIndices(cityId) {
+  const url = livingIndices + "key=" + key + "&location=" + cityId + "&type=1,3,5,8,9,11";
 
   return axios({
     method: "get",
@@ -68,8 +68,8 @@ const sunAstronomy = "https://devapi.qweather.com/v7/astronomy/sun?";
 const today = new Date();
 const date = today.getFullYear() + today.getMonth() + today.getDate();
 
-export async function getSun() {
-  const url = sunAstronomy + "key=" + key + "&location=" + location + "&date=" + date;
+export async function getSun(cityId) {
+  const url = sunAstronomy + "key=" + key + "&location=" + cityId + "&date=" + date;
 
   return axios({
     method: "get",

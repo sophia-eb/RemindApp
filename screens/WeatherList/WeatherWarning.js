@@ -4,7 +4,7 @@ import { getWeatherWarning } from "../../utils/apiUtils";
 import styles from "../../styles/WeatherList/WeatherListStyles";
 
 
-const WeatherWarning = () => {
+const WeatherWarning = props => {
   const defaultWarning = [
     {
       "id": "10101010020211009154607668935939",
@@ -24,7 +24,7 @@ const WeatherWarning = () => {
   const [weatherWarning, setWeatherWarning] = useState(defaultWarning);
 
   useEffect(() => {
-    getWeatherWarning().then(res => {
+    getWeatherWarning(props.cityId).then(res => {
       if (res.data.code === 200) {
         setWeatherWarning(res.data.warning);
       }
