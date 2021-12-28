@@ -35,21 +35,26 @@ const WeatherHourly = props => {
 
   return (
     <View style={styles.cardContainer}>
-      <View style={{ flexDirection: "row" }}>
-        <Text style={styles.cardTitle}>
-          33提醒你
-        </Text>
-        <Image
-          source={require("../../images/heart.png")}
-          style={{ width: 20, height: 20, marginTop: 10, marginHorizontal: 4 }}
-        />
-        <Text style={styles.cardTitle}>
-          逐小时预报
-        </Text>
-      </View>
-      <View style={styles.chartContainer}>
-        { weatherInfo24hError ? <ErrorMessage /> : <CustomChart data={data}/>}
-      </View>
+      { weatherInfo24hError ?
+        <ErrorMessage /> :
+        <>
+          <View style={{ flexDirection: "row" }}>
+            <Text style={styles.cardTitle}>
+              33提醒你
+            </Text>
+            <Image
+              source={require("../../images/heart.png")}
+              style={{ width: 20, height: 20, marginTop: 10, marginHorizontal: 4 }}
+            />
+            <Text style={styles.cardTitle}>
+              逐小时预报
+            </Text>
+          </View>
+          <View style={styles.chartContainer}>
+            <CustomChart data={data}/>
+          </View>
+        </>
+      }
     </View>
   );
 };

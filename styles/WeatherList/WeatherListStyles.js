@@ -23,7 +23,7 @@ module.exports = StyleSheet.create({
     textAlign: "center",
     fontSize: 18,
     lineHeight: 20,
-    paddingBottom: 10,
+    paddingVertical: 5,
     color: "#fc8955",
   },
   cardContainer: {
