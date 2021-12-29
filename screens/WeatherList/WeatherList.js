@@ -11,10 +11,8 @@ import { ROUTES } from "../../Constants";
 
 
 const WeatherList = props => {
-  const {navigation, route} = props;
-  const cityId = route?.params ? route?.params.cityId : null;
-
-  console.log(cityId, "++++++++++cityId++++++++++++++");
+  const {navigation, route, openControlPanel} = props;
+  const cityId = route?.params ? route?.params.cityId : "101280601";
 
   const defaultWeatherInfoNow = {
     "cloud": "0",
@@ -44,7 +42,7 @@ const WeatherList = props => {
       }
     });
     return () => {};
-  }, []);
+  }, [cityId]);
 
   const navigateToReward = () => {
     navigation.navigate(ROUTES.REWARD_AREA, {screen: ROUTES.REWARD_AREA});
@@ -52,7 +50,10 @@ const WeatherList = props => {
 
   return (
     <ScrollView style={styles.container}>
-      <WeatherNow weatherInfoNow={weatherInfoNow}/>
+      <WeatherNow
+        weatherInfoNow={weatherInfoNow}
+        openControlPanel={openControlPanel}
+      />
       <WeatherHourly cityId={cityId}/>
       <Weather7days cityId={cityId}/>
       <LivingIndices cityId={cityId}/>

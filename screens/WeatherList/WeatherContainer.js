@@ -2,7 +2,8 @@ import React, { useRef } from "react";
 import { Button, ScrollView, View, Text } from "react-native";
 import { CITY_LIST, ROUTES } from "../../Constants";
 import Drawer from 'react-native-drawer';
-import styles from "../../styles/Home/Home";
+import styles from "../../styles/WeatherList/WeatherContainer";
+import WeatherList from "../WeatherList/WeatherList";
 
 const drawerStyles = {
   drawer: { shadowColor: '#b8e3ff', shadowOpacity: 0.2, shadowRadius: 3},
@@ -13,6 +14,7 @@ const ControlPanel = props => {
   const {closeControlPanel, navigation} = props;
 
   const navigateToWeatherList = (cityId) => {
+    closeControlPanel();
     navigation.navigate(ROUTES.WEATHER_LIST, {cityId: cityId});
   };
 
@@ -32,15 +34,13 @@ const ControlPanel = props => {
 };
 
 const MainView = props => {
-  const {openControlPanel} = props;
   return (
     <View style={styles.mainContainer}>
-      <Text onPress={openControlPanel}>main panel</Text>
+      <WeatherList {...props}/>
     </View>);
 };
 
-const Home = props => {
-  const {navigation} = props;
+const WeatherContainer = props => {
   const drawerEl = useRef(null);
 
   const closeControlPanel = () => {
@@ -59,7 +59,7 @@ const Home = props => {
         content={
           <ControlPanel
             closeControlPanel={closeControlPanel}
-            navigation={navigation}
+            {...props}
           />}
         tapToClose={true}
         openDrawerOffset={0.6} // 60% gap on the right side of drawer
@@ -73,10 +73,11 @@ const Home = props => {
         <MainView
           openControlPanel={openControlPanel}
           closeControlPanel={closeControlPanel}
+          {...props}
         />
       </Drawer>
     </View>
   );
 };
 
-export default Home;
+export default WeatherContainer;

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import styles from "../../styles/WeatherList/WeatherListStyles";
-import { ImageBackground, Text, View } from "react-native";
+import { ImageBackground, ScrollView, Text, View } from "react-native";
 // import { getSun } from "../../utils/apiUtils";
 import Svg, { Path } from "react-native-svg";
 // import WeatherIcon from "../../icons/100.svg";
 
 const WeatherNow = props => {
-  const { weatherInfoNow } = props;
+  const { weatherInfoNow, openControlPanel } = props;
   // const [bakImage, setBakImage] = useState("");
 
   let image = require("../../images/day.jpeg");
@@ -30,6 +30,7 @@ const WeatherNow = props => {
         resizeMode="cover"
         style={styles.bakImage}
       >
+        <Text style={styles.cityPanelControl} onPress={openControlPanel}>➕ 城市列表</Text>
         <View>
           <Text style={styles.centerTempText}>
             {weatherInfoNow.temp}°C

@@ -8,6 +8,7 @@ import RewardArea from "./screens/Reward/Reward";
 import Home from "./screens/Home/Home";
 import { Text } from "react-native";
 import { isReadyRef, navigationRef } from "./utils/navigation/RootNavigation";
+import WeatherContainer from "./screens/WeatherList/WeatherContainer";
 
 // const Stack = createNativeStackNavigator();
 const RootStack = createNativeStackNavigator();
@@ -29,18 +30,18 @@ const AppNavigator = (props) => {
       <RootStack.Navigator
         initialRouteName={ROUTES.HOME}
       >
-        <RootStack.Screen
-          name={ROUTES.HOME}
-          component={Home}
-          options={{
-            headerTitle: null,
-            headerLeft: () => (<Text>{PAGE_TITLE.HOME}</Text>),
-            // headerShown: false,
-          }}
-        />
+        {/*<RootStack.Screen*/}
+        {/*  name={ROUTES.HOME}*/}
+        {/*  component={Home}*/}
+        {/*  options={{*/}
+        {/*    headerTitle: null,*/}
+        {/*    headerLeft: () => (<Text>{PAGE_TITLE.HOME}</Text>),*/}
+        {/*    // headerShown: false,*/}
+        {/*  }}*/}
+        {/*/>*/}
         <RootStack.Screen
           name={ROUTES.WEATHER_LIST}
-          component={WeatherList}
+          component={WeatherContainer}
           options={{ headerTitle: PAGE_TITLE.WEATHER_LIST }}
         />
         <RootStack.Screen

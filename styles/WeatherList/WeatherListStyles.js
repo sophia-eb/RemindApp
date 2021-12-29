@@ -2,7 +2,7 @@ import {StyleSheet} from "react-native";
 import {getRealDP} from "../../utils/adapaterUtil";
 
 // const colors = ["#f6dae4", "#d4f0f7", "#d0d5f7", "#b8cfec"];
-// const colors1 = ["#fc8955", "#0583d2", "#4fd6f7", "#b8e3ff"];
+const colors1 = ["#fc8955", "#0583d2", "#4fd6f7", "#b8e3ff"];
 
 module.exports = StyleSheet.create({
   container: {
@@ -13,6 +13,15 @@ module.exports = StyleSheet.create({
     flex: 1,
     height: 420,
     justifyContent: "center",
+    position: "relative",
+  },
+  cityPanelControl: {
+    position: "absolute",
+    top: 10,
+    left: 10,
+    zIndex: 1,
+    color: "#444444",
+    fontWeight: "bold",
   },
   centerTempText: {
     textAlign: "center",
