@@ -43,7 +43,7 @@ const ProfessionalInfo = props => {
           </Text>
         </View>
       </View>
-      <View style={styles.wrapContainer}>
+      <View style={[weatherListStyles.wrapContainer, commonStyles.height54]}>
         <View style={styles.iconView}>
           <Image
             source={require("../../images/professional-info/cloud.png")}
