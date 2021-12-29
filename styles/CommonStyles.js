@@ -1,6 +1,6 @@
 import {StyleSheet} from "react-native";
 
-import { themeColorOne } from "../Constants";
+import { themeColor } from "../Constants";
 
 module.exports = StyleSheet.create({
   cardContainer: {
@@ -30,10 +30,10 @@ module.exports = StyleSheet.create({
   },
 
   textColor: {
-    color: themeColorOne.titleColor,
+    color: themeColor.titleColor,
   },
   textColorBlue: {
-    color: themeColorOne.textColorBlue,
+    color: themeColor.textColorBlue,
   },
 
   fontSize14: {

@@ -1,11 +1,11 @@
 import {StyleSheet} from "react-native";
 
-import { themeColorOne } from "../../Constants";
+import { themeColor } from "../../Constants";
 
 module.exports = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: themeColorOne.lightGrayColor,
+    backgroundColor: themeColor.lightGrayColor,
   },
   bakImage: {
     flex: 1,

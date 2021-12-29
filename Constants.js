@@ -21,7 +21,7 @@ export const CITY_LIST_OBJ = {
 
 // const colors = ["#f6dae4", "#d4f0f7", "#d0d5f7", "#b8cfec"];
 // const color1 = ["#fc8955", "#0583d2", "#4fd6f7", "#b8e3ff"]
-export const themeColorOne = {
+const themeColorOne = {
   lightGrayColor: "#f4f4f4",
   grayColor: "#cccccc",
   titleColor: "#fc8955",
@@ -30,4 +30,4 @@ export const themeColorOne = {
   textColor: "#b8e3ff",
 };
 
-
+export const themeColor = themeColorOne;
