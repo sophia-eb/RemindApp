@@ -1,4 +1,5 @@
 import {StyleSheet} from "react-native";
+
 import {getRealDP} from "../../utils/adapaterUtil";
 
 module.exports = StyleSheet.create({

@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import {Dimensions, PixelRatio, Platform} from "react-native";
 
 export const deviceWidth = Math.round(Dimensions.get("window").width);

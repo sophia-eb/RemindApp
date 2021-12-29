@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
+
 import { Text, ScrollView, View, TouchableOpacity, Image } from "react-native";
+
+import { ROUTES } from "../../Constants";
 import styles from "../../styles/WeatherList/WeatherListStyles";
 import { getNowWeather } from "../../utils/apiUtils";
+import LivingIndices from "./LivingIndices";
+import ProfessionalInfo from "./ProfessionalInfo";
 import Weather7days from "./Weather7days";
 import WeatherHourly from "./WeatherHourly";
 import WeatherNow from "./WeatherNow";
-import ProfessionalInfo from "./ProfessionalInfo";
-import LivingIndices from "./LivingIndices";
-import { ROUTES } from "../../Constants";
 
 
-const WeatherList = props => {
+const WeatherContent = props => {
   const {navigation, route, openControlPanel, defaultCity} = props;
   const cityId = route?.params ? route?.params.cityId : defaultCity;
 
@@ -72,4 +74,4 @@ const WeatherList = props => {
   );
 };
 
-export default WeatherList;
+export default WeatherContent;

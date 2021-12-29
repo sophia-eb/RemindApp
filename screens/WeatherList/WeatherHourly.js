@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+
 import { View } from "react-native";
+
 import styles from "../../styles/WeatherList/WeatherListStyles";
-import CustomChart from "./CustomChart";
 import { get24hWeather } from "../../utils/apiUtils";
-import ErrorMessage from "./ErrorMessage";
-import CardTitle from "./CardTitle";
+import CardTitle from "./Common/CardTitle";
+import CustomChart from "./Common/CustomChart";
+import ErrorMessage from "./Common/ErrorMessage";
 
 
 const WeatherHourly = props => {

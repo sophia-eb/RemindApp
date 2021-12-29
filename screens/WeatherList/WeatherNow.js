@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import styles from "../../styles/WeatherList/WeatherListStyles";
-import commonStyles from "../../styles/CommonStyles";
-import { Image, ImageBackground, ScrollView, Text, View } from "react-native";
+
+import { Image, ImageBackground, Text, View } from "react-native";
+
 // import { getSun } from "../../utils/apiUtils";
 // import Svg, { Path } from "react-native-svg";
 import { CITY_LIST_OBJ } from "../../Constants";
+import commonStyles from "../../styles/CommonStyles";
+import styles from "../../styles/WeatherList/WeatherListStyles";
 // import WeatherIcon from "../../icons/100.svg";
 
 const WeatherNow = props => {

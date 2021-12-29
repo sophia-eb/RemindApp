@@ -1,9 +1,11 @@
 import React from "react";
-import weatherListStyles from "../../styles/WeatherList/WeatherListStyles";
-import styles from "../../styles/WeatherList/ProfessionalInfoStyles";
-import commonStyles from "../../styles/CommonStyles";
+
 import { Image, Text, View } from "react-native";
-import CardTitle from "./CardTitle";
+
+import commonStyles from "../../styles/CommonStyles";
+import styles from "../../styles/WeatherList/ProfessionalInfoStyles";
+import weatherListStyles from "../../styles/WeatherList/WeatherListStyles";
+import CardTitle from "./Common/CardTitle";
 
 const ProfessionalInfo = props => {
   const { weatherInfoNow } = props;

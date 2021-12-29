@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+
 import { View } from "react-native";
-import { get7daysWeather } from "../../utils/apiUtils";
+
 import styles from "../../styles/WeatherList/WeatherListStyles";
-import CustomChart from "./CustomChart";
-import ErrorMessage from "./ErrorMessage";
-import CardTitle from "./CardTitle";
+import { get7daysWeather } from "../../utils/apiUtils";
+import CardTitle from "./Common/CardTitle";
+import CustomChart from "./Common/CustomChart";
+import ErrorMessage from "./Common/ErrorMessage";
 
 
 const Weather7days = props => {

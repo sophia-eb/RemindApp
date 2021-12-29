@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
+
 import { View, Text, Button } from "react-native";
-import { CITY_LIST_OBJ, ROUTES } from "../../Constants";
 import Drawer from 'react-native-drawer';
+
+import { CITY_LIST_OBJ, ROUTES } from "../../Constants";
 import styles from "../../styles/WeatherList/WeatherContainer";
-import WeatherList from "../WeatherList/WeatherList";
-import { localStorage } from "../../utils/storage/storageUtil";
 import { DEFAULT_CITY } from "../../utils/storage/storageKeyNames";
+import { localStorage } from "../../utils/storage/storageUtil";
+import WeatherContent from "./WeatherContent";
 
 const drawerStyles = {
   drawer: { shadowColor: '#b8e3ff', shadowOpacity: 0.2, shadowRadius: 3},
@@ -54,7 +56,7 @@ const WeatherContainer = props => {
           main: { opacity:(2-ratio)/2 }
         })}
       >
-        <WeatherList
+        <WeatherContent
           defaultCity={defaultCity}
           openControlPanel={openControlPanel}
           closeControlPanel={closeControlPanel}

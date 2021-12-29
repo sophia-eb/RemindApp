@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Text, ScrollView, View } from "react-native";
-import { getWeatherWarning } from "../../utils/apiUtils";
+
+import { Text, View } from "react-native";
+
 import styles from "../../styles/WeatherList/WeatherListStyles";
+import { getWeatherWarning } from "../../utils/apiUtils";
 
 
 const WeatherWarning = props => {
@@ -24,12 +26,12 @@ const WeatherWarning = props => {
   const [weatherWarning, setWeatherWarning] = useState(defaultWarning);
 
   useEffect(() => {
-    getWeatherWarning(props.cityId).then(res => {
+    props.cityId && getWeatherWarning(props.cityId).then(res => {
       if (res.data.code === 200) {
         setWeatherWarning(res.data.warning);
       }
     });
-  }, []);
+  }, [props.cityId]);
 
   return (
     <View style={styles.cardContainer}>

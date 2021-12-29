@@ -1,4 +1,5 @@
 import {StyleSheet} from "react-native";
+
 import { getRealDP } from "../utils/adapaterUtil";
 
 // const colors = ["#f6dae4", "#d4f0f7", "#d0d5f7", "#b8cfec"];
