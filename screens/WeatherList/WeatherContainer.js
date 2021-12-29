@@ -10,36 +10,6 @@ const drawerStyles = {
   main: { paddingLeft: 3 },
 };
 
-const ControlPanel = props => {
-  const {closeControlPanel, navigation} = props;
-
-  const navigateToWeatherList = (cityId) => {
-    closeControlPanel();
-    navigation.navigate(ROUTES.WEATHER_LIST, {cityId: cityId});
-  };
-
-  return (
-    <View style={styles.controlPanel}>
-      <Text style={styles.closePanel} onPress={closeControlPanel}>关闭</Text>
-      { Object.keys(CITY_LIST).map(cityId => (
-        <Text
-          key={cityId}
-          style={styles.textStyle}
-          onPress={() => navigateToWeatherList(cityId)}
-        >
-          {CITY_LIST[cityId]}
-        </Text>
-      ))}
-    </View>);
-};
-
-const MainView = props => {
-  return (
-    <View style={styles.mainContainer}>
-      <WeatherList {...props}/>
-    </View>);
-};
-
 const WeatherContainer = props => {
   const drawerEl = useRef(null);
 
@@ -79,5 +49,36 @@ const WeatherContainer = props => {
     </View>
   );
 };
+
+const ControlPanel = props => {
+  const {closeControlPanel, navigation} = props;
+
+  const navigateToWeatherList = (cityId) => {
+    closeControlPanel();
+    navigation.navigate(ROUTES.WEATHER_LIST, {cityId: cityId});
+  };
+
+  return (
+    <View style={styles.controlPanel}>
+      <Text style={styles.closePanel} onPress={closeControlPanel}>关闭</Text>
+      { Object.keys(CITY_LIST).map(cityId => (
+        <Text
+          key={cityId}
+          style={styles.textStyle}
+          onPress={() => navigateToWeatherList(cityId)}
+        >
+          {CITY_LIST[cityId]}
+        </Text>
+      ))}
+    </View>);
+};
+
+const MainView = props => {
+  return (
+    <View style={styles.mainContainer}>
+      <WeatherList {...props}/>
+    </View>);
+};
+
 
 export default WeatherContainer;
