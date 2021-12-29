@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Text, View, Image } from "react-native";
-import { get24hWeather, get7daysWeather } from "../../utils/apiUtils";
+import { View } from "react-native";
+import { get7daysWeather } from "../../utils/apiUtils";
 import styles from "../../styles/WeatherList/WeatherListStyles";
 import CustomChart from "./CustomChart";
 import ErrorMessage from "./ErrorMessage";
+import CardTitle from "./CardTitle";
 
 
 const Weather7days = props => {
@@ -39,18 +40,7 @@ const Weather7days = props => {
       { weatherInfo7dError ?
         <ErrorMessage /> :
         <>
-          <View style={{ flexDirection: "row" }}>
-            <Text style={styles.cardTitle}>
-              33提醒你
-            </Text>
-            <Image
-              source={require("../../images/heart.png")}
-              style={{ width: 20, height: 20, marginTop: 10, marginHorizontal: 4 }}
-            />
-            <Text style={styles.cardTitle}>
-              未来7天
-            </Text>
-          </View>
+          <CardTitle cardTitleContext={"未来7天"}/>
           <View style={styles.chartContainer}>
             <CustomChart data={data}/>
           </View>

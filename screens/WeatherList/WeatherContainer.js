@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { View, Text } from "react-native";
+import { View, Text, Button } from "react-native";
 import { CITY_LIST_OBJ, ROUTES } from "../../Constants";
 import Drawer from 'react-native-drawer';
 import styles from "../../styles/WeatherList/WeatherContainer";
@@ -74,6 +74,10 @@ const ControlPanel = props => {
     navigation.navigate(ROUTES.WEATHER_LIST, {cityId: cityId});
   };
 
+  const navigateToCity = () => {
+
+  };
+
   return (
     <View style={styles.controlPanel}>
       <Text style={styles.closePanel} onPress={closeControlPanel}>关闭</Text>
@@ -86,6 +90,12 @@ const ControlPanel = props => {
           {CITY_LIST_OBJ[cityId]}
         </Text>
       ))}
+      <View>
+        <Button
+          title={"添加城市"}
+          onPress={() => navigateToCity()}
+        />
+      </View>
     </View>);
 };
 

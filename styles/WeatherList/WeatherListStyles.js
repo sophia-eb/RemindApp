@@ -1,9 +1,6 @@
 import {StyleSheet} from "react-native";
 import {getRealDP} from "../../utils/adapaterUtil";
 
-// const colors = ["#f6dae4", "#d4f0f7", "#d0d5f7", "#b8cfec"];
-const colors1 = ["#fc8955", "#0583d2", "#4fd6f7", "#b8e3ff"];
-
 module.exports = StyleSheet.create({
   container: {
     flex: 1,
@@ -26,15 +23,12 @@ module.exports = StyleSheet.create({
   centerTempText: {
     textAlign: "center",
     fontSize: 60,
-    color: "#fc8955",
   },
   centerText: {
     textAlign: "center",
-    fontSize: 18,
     fontWeight: "bold",
     lineHeight: 20,
     paddingVertical: 5,
-    color: "#fc8955",
   },
   cardContainer: {
     flex: 1,
@@ -50,18 +44,12 @@ module.exports = StyleSheet.create({
     position: "relative",
     left: -26,
   },
-  cardTitle: {
-    fontSize: 18,
-    paddingVertical: 6,
-    color: "#fc8955",
-  },
   wrapContainer: {
     display: "flex",
     flexWrap: "wrap",
     alignContent: "space-around",
     justifyContent: "center",
     width: "auto",
-    height: 36
   },
   wrapTextTitle: {
     fontSize: 16,
@@ -76,14 +64,5 @@ module.exports = StyleSheet.create({
     width: 140,
     height: 48,
     textAlign: "left",
-  },
-  wrapTextName: {
-    fontSize: 14,
-    lineHeight: 22,
-  },
-  wrapText: {
-    fontSize: 16,
-    lineHeight: 20,
-    color: "#0583d2",
   },
 });

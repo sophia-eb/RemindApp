@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "../../styles/WeatherList/WeatherListStyles";
+import commonStyles from "../../styles/CommonStyles";
 import { Image, ImageBackground, ScrollView, Text, View } from "react-native";
 // import { getSun } from "../../utils/apiUtils";
 // import Svg, { Path } from "react-native-svg";
@@ -38,14 +39,14 @@ const WeatherNow = props => {
               source={require("../../images/location.png")}
               style={{ width: 28, height: 28, marginRight: 6 }}
             />
-            <Text style={styles.centerText}>
+            <Text style={[styles.centerText, commonStyles.fontSize18, commonStyles.textColor]}>
               {CITY_LIST_OBJ[cityId]}
             </Text>
           </View>
-          <Text style={styles.centerTempText}>
+          <Text style={[styles.centerTempText, commonStyles.textColor]}>
             {weatherInfoNow.temp}°C
           </Text>
-          <Text style={styles.centerText}>
+          <Text style={[styles.centerText, commonStyles.fontSize18, commonStyles.textColor]}>
             {/*<View>*/}
             {/*  <Svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#ffffff" className="qi-100"*/}
             {/*       viewBox="0 0 16 16">*/}
@@ -57,46 +58,46 @@ const WeatherNow = props => {
             {/*</View>*/}
             {weatherInfoNow.text}
           </Text>
-          <View style={styles.wrapContainer}>
-            <Text style={styles.wrapTextTitle}>
+          <View style={[styles.wrapContainer, commonStyles.height36]}>
+            <Text style={commonStyles.fontSize16}>
               体感
             </Text>
             <Text style={styles.wrapTextContent}>
               {weatherInfoNow.feelsLike}°C
             </Text>
           </View>
-          <View style={styles.wrapContainer}>
-            <Text style={styles.wrapTextTitle}>
+          <View style={[styles.wrapContainer, commonStyles.height36]}>
+            <Text style={commonStyles.fontSize16}>
               风力
             </Text>
             <Text style={styles.wrapTextContent}>
               {weatherInfoNow.windDir} {weatherInfoNow.windScale}级
             </Text>
           </View>
-          <View style={styles.wrapContainer}>
-            <Text style={styles.wrapTextTitle}>
+          <View style={[styles.wrapContainer, commonStyles.height36]}>
+            <Text style={commonStyles.fontSize16}>
               风速
             </Text>
             <Text style={styles.wrapTextContent}>
               {weatherInfoNow.windSpeed}公里/小时
             </Text>
           </View>
-          <View style={styles.wrapContainer}>
-            <Text style={styles.wrapTextTitle}>
+          <View style={[styles.wrapContainer, commonStyles.height36]}>
+            <Text style={commonStyles.fontSize16}>
               湿度
             </Text>
             <Text style={styles.wrapTextContent}>
               {weatherInfoNow.humidity}%
             </Text>
           </View>
-          {/*<View style={styles.wrapContainer}>*/}
-          {/*  <Text style={styles.wrapText}>*/}
-          {/*    当前小时累计降水量*/}
-          {/*  </Text>*/}
-          {/*  <Text style={styles.wrapText}>*/}
-          {/*    {weatherInfoNow.precip}毫米*/}
-          {/*  </Text>*/}
-          {/*</View>*/}
+          <View style={[styles.wrapContainer, commonStyles.height36]}>
+            <Text style={commonStyles.fontSize16}>
+              当前小时累计降水量
+            </Text>
+            <Text style={styles.wrapTextContent}>
+              {weatherInfoNow.precip}毫米
+            </Text>
+          </View>
         </View>
       </ImageBackground>
     </View>

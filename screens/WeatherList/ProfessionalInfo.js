@@ -1,26 +1,17 @@
 import React from "react";
-import commonStyles from "../../styles/WeatherList/WeatherListStyles";
+import weatherListStyles from "../../styles/WeatherList/WeatherListStyles";
 import styles from "../../styles/WeatherList/ProfessionalInfoStyles";
+import commonStyles from "../../styles/CommonStyles";
 import { Image, Text, View } from "react-native";
+import CardTitle from "./CardTitle";
 
 const ProfessionalInfo = props => {
   const { weatherInfoNow } = props;
 
   return (
     <View style={commonStyles.cardContainer}>
-      <View style={{ flexDirection: "row" }}>
-        <Text style={commonStyles.cardTitle}>
-          33提醒你
-        </Text>
-        <Image
-          source={require("../../images/heart.png")}
-          style={{ width: 20, height: 20, marginTop: 10, marginHorizontal: 4 }}
-        />
-        <Text style={commonStyles.cardTitle}>
-          专业数据
-        </Text>
-      </View>
-      <View style={styles.wrapContainer}>
+      <CardTitle cardTitleContext={"专业数据"}/>
+      <View style={[weatherListStyles.wrapContainer, commonStyles.height54]}>
         <View style={styles.iconView}>
           <Image
             source={require("../../images/professional-info/atmospheric-pressure.png")}
@@ -28,10 +19,10 @@ const ProfessionalInfo = props => {
           />
         </View>
         <View style={styles.wrapView}>
-          <Text style={commonStyles.wrapTextName}>
+          <Text style={commonStyles.fontSize14}>
             大气压强
           </Text>
-          <Text style={styles.wrapText}>
+          <Text style={[commonStyles.fontSize16, commonStyles.textColorBlue]}>
             {weatherInfoNow.pressure} hPa
           </Text>
         </View>
@@ -42,10 +33,10 @@ const ProfessionalInfo = props => {
           />
         </View>
         <View style={styles.wrapView}>
-          <Text style={commonStyles.wrapTextName}>
+          <Text style={commonStyles.fontSize14}>
             能见度
           </Text>
-          <Text style={styles.wrapText}>
+          <Text style={[commonStyles.fontSize16, commonStyles.textColorBlue]}>
             {weatherInfoNow.vis} km
           </Text>
         </View>
@@ -58,10 +49,10 @@ const ProfessionalInfo = props => {
           />
         </View>
         <View style={styles.wrapView}>
-          <Text style={commonStyles.wrapTextName}>
+          <Text style={commonStyles.fontSize14}>
             云量
           </Text>
-          <Text style={styles.wrapText}>
+          <Text style={[commonStyles.fontSize16, commonStyles.textColorBlue]}>
             {weatherInfoNow.cloud} %
           </Text>
         </View>
@@ -72,10 +63,10 @@ const ProfessionalInfo = props => {
           />
         </View>
         <View style={styles.wrapView}>
-          <Text style={commonStyles.wrapTextName}>
+          <Text style={commonStyles.fontSize14}>
             露点温度
           </Text>
-          <Text style={styles.wrapText}>
+          <Text style={[commonStyles.fontSize16, commonStyles.textColorBlue]}>
             {weatherInfoNow.dew}
           </Text>
         </View>

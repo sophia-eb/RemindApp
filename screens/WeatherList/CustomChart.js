@@ -1,5 +1,5 @@
 import React from "react";
-import { VictoryChart, VictoryLine, VictoryScatter, VictoryTheme } from "victory-native";
+import { VictoryChart, VictoryLine, VictoryScatter } from "victory-native";
 
 
 const CustomChart = props => {
