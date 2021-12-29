@@ -1,19 +1,12 @@
 import {StyleSheet} from "react-native";
 
-import { getRealDP } from "../utils/adapaterUtil";
-
-// const colors = ["#f6dae4", "#d4f0f7", "#d0d5f7", "#b8cfec"];
-const colors1 = ["#fc8955", "#0583d2", "#4fd6f7", "#b8e3ff"];
-
-const titleColor = "#fc8955";
-const textColorBlue = "#0583d2";
-
+import { themeColorOne } from "../Constants";
 
 module.exports = StyleSheet.create({
   cardContainer: {
     flex: 1,
     backgroundColor: "#ffffff",
-    borderRadius: getRealDP(8),
+    borderRadius: 8,
     borderWidth: 1,
     borderColor: "#eeeeee",
     margin: 16,
@@ -32,11 +25,15 @@ module.exports = StyleSheet.create({
     height: 54,
   },
 
+  padding10: {
+    padding: 10,
+  },
+
   textColor: {
-    color: titleColor,
+    color: themeColorOne.titleColor,
   },
   textColorBlue: {
-    color: textColorBlue,
+    color: themeColorOne.textColorBlue,
   },
 
   fontSize14: {

@@ -2,7 +2,7 @@ import React from "react";
 
 import { Image, ScrollView, Text, View } from "react-native";
 
-import styles from "../../styles/WeatherList/WeatherListStyles";
+import styles from "../../styles/WeatherList/WeatherContent";
 
 
 const RewardArea = () => {

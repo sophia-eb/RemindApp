@@ -4,6 +4,7 @@ import { View, Text, Button } from "react-native";
 import Drawer from 'react-native-drawer';
 
 import { CITY_LIST_OBJ, ROUTES } from "../../Constants";
+import commonStyles from "../../styles/CommonStyles";
 import styles from "../../styles/WeatherList/WeatherContainer";
 import { DEFAULT_CITY } from "../../utils/storage/storageKeyNames";
 import { localStorage } from "../../utils/storage/storageUtil";
@@ -82,21 +83,28 @@ const ControlPanel = props => {
 
   return (
     <View style={styles.controlPanel}>
-      <Text style={styles.closePanel} onPress={closeControlPanel}>关闭</Text>
+      <Text
+        style={[commonStyles.fontSize16, commonStyles.padding10, styles.closePanel]}
+        onPress={closeControlPanel}
+      >
+        关闭
+      </Text>
       { Object.keys(CITY_LIST_OBJ).map(cityId => (
         <Text
           key={cityId}
-          style={styles.textStyle}
+          style={[commonStyles.fontSize16, commonStyles.padding10]}
           onPress={() => navigateToWeatherList(cityId)}
         >
           {CITY_LIST_OBJ[cityId]}
         </Text>
       ))}
-      <View>
-        <Button
-          title={"添加城市"}
+      <View style={styles.controlBottom}>
+        <Text
           onPress={() => navigateToCity()}
-        />
+          style={[styles.addButtonStyle, commonStyles.fontSize18, commonStyles.textColorBlue]}
+        >
+          添加城市
+        </Text>
       </View>
     </View>);
 };

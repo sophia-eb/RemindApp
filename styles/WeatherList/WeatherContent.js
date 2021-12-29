@@ -1,11 +1,11 @@
 import {StyleSheet} from "react-native";
 
-import {getRealDP} from "../../utils/adapaterUtil";
+import { themeColorOne } from "../../Constants";
 
 module.exports = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f4f4f4",
+    backgroundColor: themeColorOne.lightGrayColor,
   },
   bakImage: {
     flex: 1,
@@ -34,7 +34,7 @@ module.exports = StyleSheet.create({
   cardContainer: {
     flex: 1,
     backgroundColor: "#ffffff",
-    borderRadius: getRealDP(8),
+    borderRadius: 0,
     borderWidth: 1,
     borderColor: "#eeeeee",
     margin: 16,

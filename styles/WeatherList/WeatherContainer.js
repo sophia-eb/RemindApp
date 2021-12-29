@@ -1,12 +1,11 @@
 import {StyleSheet} from "react-native";
 
-const colors = ["#f6dae4", "#d4f0f7", "#d0d5f7", "#b8cfec"];
-const colors1 = ["#fc8955", "#0583d2", "#4fd6f7", "#b8e3ff"];
+import { themeColorOne } from "../../Constants";
 
 module.exports = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f4f4f4",
+    backgroundColor: themeColorOne.lightGrayColor,
   },
   mainContainer: {
     flex: 1,
@@ -14,16 +13,25 @@ module.exports = StyleSheet.create({
     overflowX: "scroll",
   },
   controlPanel: {
-    backgroundColor: "#b8e3ff",
+    backgroundColor: themeColorOne.textColor,
     height: "100%",
   },
-  textStyle: {
-    fontSize: 16,
-    padding: 10,
-  },
   closePanel: {
-    fontSize: 16,
-    padding: 10,
-    backgroundColor: "#cccccc",
+    backgroundColor: themeColorOne.grayColor,
+  },
+  controlBottom: {
+    flexDirection:'row',
+    justifyContent:"center",
+    alignItems:'center',
+  },
+  addButtonStyle: {
+    height: 34,
+    width: 120,
+    lineHeight: 30,
+    textAlign: "center",
+    borderWidth: 1,
+    borderRadius: 5,
+    borderColor: themeColorOne.textColorBlue,
+    backgroundColor: themeColorOne.textColor,
   },
 });

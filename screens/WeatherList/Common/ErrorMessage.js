@@ -3,7 +3,7 @@ import React from "react";
 import { Text } from "react-native";
 
 import commonStyles from "../../../styles/CommonStyles";
-import styles from "../../../styles/WeatherList/WeatherListStyles";
+import styles from "../../../styles/WeatherList/WeatherContent";
 
 const ErrorMessage = () => {
   return (

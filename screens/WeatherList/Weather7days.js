@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { View } from "react-native";
 
-import styles from "../../styles/WeatherList/WeatherListStyles";
+import styles from "../../styles/WeatherList/WeatherContent";
 import { get7daysWeather } from "../../utils/apiUtils";
 import CardTitle from "./Common/CardTitle";
 import CustomChart from "./Common/CustomChart";

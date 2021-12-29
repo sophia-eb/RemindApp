@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { FlatList, Text, View } from "react-native";
 
 import commonStyles from "../../styles/CommonStyles";
-import styles from "../../styles/WeatherList/WeatherListStyles";
+import styles from "../../styles/WeatherList/WeatherContent";
 import { getLivingIndices } from "../../utils/apiUtils";
 import CardTitle from "./Common/CardTitle";
 

@@ -6,7 +6,7 @@ import { Image, ImageBackground, Text, View } from "react-native";
 // import Svg, { Path } from "react-native-svg";
 import { CITY_LIST_OBJ } from "../../Constants";
 import commonStyles from "../../styles/CommonStyles";
-import styles from "../../styles/WeatherList/WeatherListStyles";
+import styles from "../../styles/WeatherList/WeatherContent";
 // import WeatherIcon from "../../icons/100.svg";
 
 const WeatherNow = props => {
