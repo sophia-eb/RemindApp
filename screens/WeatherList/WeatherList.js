@@ -11,8 +11,8 @@ import { ROUTES } from "../../Constants";
 
 
 const WeatherList = props => {
-  const {navigation, route, openControlPanel} = props;
-  const cityId = route?.params ? route?.params.cityId : "101280601";
+  const {navigation, route, openControlPanel, defaultCity} = props;
+  const cityId = route?.params ? route?.params.cityId : defaultCity;
 
   const defaultWeatherInfoNow = {
     "cloud": "0",
@@ -53,6 +53,7 @@ const WeatherList = props => {
       <WeatherNow
         weatherInfoNow={weatherInfoNow}
         openControlPanel={openControlPanel}
+        cityId={cityId}
       />
       <WeatherHourly cityId={cityId}/>
       <Weather7days cityId={cityId}/>

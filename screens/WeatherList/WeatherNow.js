@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import styles from "../../styles/WeatherList/WeatherListStyles";
-import { ImageBackground, ScrollView, Text, View } from "react-native";
+import { Image, ImageBackground, ScrollView, Text, View } from "react-native";
 // import { getSun } from "../../utils/apiUtils";
-import Svg, { Path } from "react-native-svg";
+// import Svg, { Path } from "react-native-svg";
+import { CITY_LIST_OBJ } from "../../Constants";
 // import WeatherIcon from "../../icons/100.svg";
 
 const WeatherNow = props => {
-  const { weatherInfoNow, openControlPanel } = props;
+  const { weatherInfoNow, openControlPanel, cityId } = props;
   // const [bakImage, setBakImage] = useState("");
 
   let image = require("../../images/day.jpeg");
@@ -32,6 +33,15 @@ const WeatherNow = props => {
       >
         <Text style={styles.cityPanelControl} onPress={openControlPanel}>➕ 城市列表</Text>
         <View>
+          <View style={{ flexDirection: "row", marginHorizontal: "40%" }}>
+            <Image
+              source={require("../../images/location.png")}
+              style={{ width: 28, height: 28, marginRight: 6 }}
+            />
+            <Text style={styles.centerText}>
+              {CITY_LIST_OBJ[cityId]}
+            </Text>
+          </View>
           <Text style={styles.centerTempText}>
             {weatherInfoNow.temp}°C
           </Text>

@@ -1,9 +1,11 @@
-import React, { useRef } from "react";
-import { Button, ScrollView, View, Text } from "react-native";
-import { CITY_LIST, ROUTES } from "../../Constants";
+import React, { useEffect, useRef, useState } from "react";
+import { View, Text } from "react-native";
+import { CITY_LIST_OBJ, ROUTES } from "../../Constants";
 import Drawer from 'react-native-drawer';
 import styles from "../../styles/WeatherList/WeatherContainer";
 import WeatherList from "../WeatherList/WeatherList";
+import { localStorage } from "../../utils/storage/storageUtil";
+import { DEFAULT_CITY } from "../../utils/storage/storageKeyNames";
 
 const drawerStyles = {
   drawer: { shadowColor: '#b8e3ff', shadowOpacity: 0.2, shadowRadius: 3},
@@ -12,6 +14,18 @@ const drawerStyles = {
 
 const WeatherContainer = props => {
   const drawerEl = useRef(null);
+  const [defaultCity, setDefaultCity] = useState(null);
+
+  useEffect(() => {
+    async function setCity() {
+      const defaultCity = await localStorage.getItem(DEFAULT_CITY);
+      if (defaultCity) {
+        setDefaultCity(defaultCity);
+      }
+    }
+    setCity();
+    return () => {};
+  }, []);
 
   const closeControlPanel = () => {
     drawerEl.current.close();
@@ -40,7 +54,8 @@ const WeatherContainer = props => {
           main: { opacity:(2-ratio)/2 }
         })}
       >
-        <MainView
+        <WeatherList
+          defaultCity={defaultCity}
           openControlPanel={openControlPanel}
           closeControlPanel={closeControlPanel}
           {...props}
@@ -53,30 +68,24 @@ const WeatherContainer = props => {
 const ControlPanel = props => {
   const {closeControlPanel, navigation} = props;
 
-  const navigateToWeatherList = (cityId) => {
+  const navigateToWeatherList = async (cityId) => {
     closeControlPanel();
+    await localStorage.setItem(DEFAULT_CITY, cityId);
     navigation.navigate(ROUTES.WEATHER_LIST, {cityId: cityId});
   };
 
   return (
     <View style={styles.controlPanel}>
       <Text style={styles.closePanel} onPress={closeControlPanel}>关闭</Text>
-      { Object.keys(CITY_LIST).map(cityId => (
+      { Object.keys(CITY_LIST_OBJ).map(cityId => (
         <Text
           key={cityId}
           style={styles.textStyle}
           onPress={() => navigateToWeatherList(cityId)}
         >
-          {CITY_LIST[cityId]}
+          {CITY_LIST_OBJ[cityId]}
         </Text>
       ))}
-    </View>);
-};
-
-const MainView = props => {
-  return (
-    <View style={styles.mainContainer}>
-      <WeatherList {...props}/>
     </View>);
 };
 

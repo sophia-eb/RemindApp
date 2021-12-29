@@ -12,7 +12,7 @@ export const PAGE_TITLE = {
   REWARD_AREA: "打赏页",
 };
 
-export const CITY_LIST = {
+export const CITY_LIST_OBJ = {
   101280601: "深圳",
   101180801: "开封",
   101190401: "苏州",

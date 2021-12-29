@@ -14,6 +14,7 @@ const LivingIndices = props => {
         setLivingIndices(res.data.daily);
       }
     });
+    return () => {};
   }, [props.cityId]);
 
   const renderItem = ({ item }) => (

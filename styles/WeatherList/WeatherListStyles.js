@@ -31,6 +31,7 @@ module.exports = StyleSheet.create({
   centerText: {
     textAlign: "center",
     fontSize: 18,
+    fontWeight: "bold",
     lineHeight: 20,
     paddingVertical: 5,
     color: "#fc8955",

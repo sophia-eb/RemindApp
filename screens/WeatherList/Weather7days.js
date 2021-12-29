@@ -22,6 +22,7 @@ const Weather7days = props => {
         setWeatherInfo7dError(true);
       }
     });
+    return () => {};
   }, [props.cityId]);
 
   let data = [];
