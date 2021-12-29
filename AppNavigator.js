@@ -28,7 +28,7 @@ const AppNavigator = (props) => {
       }}
     >
       <RootStack.Navigator
-        initialRouteName={ROUTES.HOME}
+        initialRouteName={ROUTES.WEATHER_LIST}
       >
         {/*<RootStack.Screen*/}
         {/*  name={ROUTES.HOME}*/}
