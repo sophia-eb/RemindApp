@@ -44,7 +44,7 @@ const Weather7days = props => {
         <>
           <CardTitle cardTitleContext={"未来7天"}/>
           <View style={styles.chartContainer}>
-            <CustomChart data={data}/>
+            {/*<CustomChart data={data}/>*/}
           </View>
         </>
       }

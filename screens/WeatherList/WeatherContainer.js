@@ -1,13 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 
-import { View, Text, Button } from "react-native";
+import { View } from "react-native";
 import Drawer from 'react-native-drawer';
 
-import { CITY_LIST_OBJ, ROUTES } from "../../Constants";
-import commonStyles from "../../styles/CommonStyles";
 import styles from "../../styles/WeatherList/WeatherContainer";
 import { DEFAULT_CITY } from "../../utils/storage/storageKeyNames";
 import { localStorage } from "../../utils/storage/storageUtil";
+import SidePanel from "./SidePanel";
 import WeatherContent from "./WeatherContent";
 
 const drawerStyles = {
@@ -44,7 +43,7 @@ const WeatherContainer = props => {
         ref={drawerEl}
         type="overlay"
         content={
-          <ControlPanel
+          <SidePanel
             closeControlPanel={closeControlPanel}
             {...props}
           />}
@@ -67,47 +66,5 @@ const WeatherContainer = props => {
     </View>
   );
 };
-
-const ControlPanel = props => {
-  const {closeControlPanel, navigation} = props;
-
-  const navigateToWeatherList = async (cityId) => {
-    closeControlPanel();
-    await localStorage.setItem(DEFAULT_CITY, cityId);
-    navigation.navigate(ROUTES.WEATHER_LIST, {cityId: cityId});
-  };
-
-  const navigateToCity = () => {
-
-  };
-
-  return (
-    <View style={styles.controlPanel}>
-      <Text
-        style={[commonStyles.fontSize16, commonStyles.padding10, styles.closePanel]}
-        onPress={closeControlPanel}
-      >
-        关闭
-      </Text>
-      { Object.keys(CITY_LIST_OBJ).map(cityId => (
-        <Text
-          key={cityId}
-          style={[commonStyles.fontSize16, commonStyles.padding10]}
-          onPress={() => navigateToWeatherList(cityId)}
-        >
-          {CITY_LIST_OBJ[cityId]}
-        </Text>
-      ))}
-      <View style={styles.controlBottom}>
-        <Text
-          onPress={() => navigateToCity()}
-          style={[styles.addButtonStyle, commonStyles.fontSize18, commonStyles.textColorBlue]}
-        >
-          添加城市
-        </Text>
-      </View>
-    </View>);
-};
-
 
 export default WeatherContainer;

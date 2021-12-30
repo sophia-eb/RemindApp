@@ -51,4 +51,8 @@ module.exports = StyleSheet.create({
     fontSize: 20,
   },
 
+  borderBottom: {
+    borderWidth: 1,
+    borderColor: themeColor.grayColor,
+  },
 });
