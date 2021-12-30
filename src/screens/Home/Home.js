@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import { Button, ScrollView, View, Text } from "react-native";
 import Drawer from 'react-native-drawer';
 
-import { CITY_LIST, ROUTES } from "../../Constants";
+import { CITY_LIST, ROUTES } from "../../../Constants";
 import styles from "../../styles/Home/Home";
 
 const drawerStyles = {

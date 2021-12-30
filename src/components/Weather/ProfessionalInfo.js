@@ -16,7 +16,7 @@ const ProfessionalInfo = props => {
       <View style={[weatherListStyles.wrapContainer, commonStyles.height54]}>
         <View style={styles.iconView}>
           <Image
-            source={require("../../images/professional-info/atmospheric-pressure.png")}
+            source={require("../../../images/professional-info/atmospheric-pressure.png")}
             style={styles.iconStyle}
           />
         </View>
@@ -30,7 +30,7 @@ const ProfessionalInfo = props => {
         </View>
         <View style={styles.iconView}>
           <Image
-            source={require("../../images/professional-info/visibility.png")}
+            source={require("../../../images/professional-info/visibility.png")}
             style={styles.iconStyle}
           />
         </View>
@@ -46,7 +46,7 @@ const ProfessionalInfo = props => {
       <View style={[weatherListStyles.wrapContainer, commonStyles.height54]}>
         <View style={styles.iconView}>
           <Image
-            source={require("../../images/professional-info/cloud.png")}
+            source={require("../../../images/professional-info/cloud.png")}
             style={styles.iconStyle}
           />
         </View>
@@ -60,7 +60,7 @@ const ProfessionalInfo = props => {
         </View>
         <View style={styles.iconView}>
           <Image
-            source={require("../../images/professional-info/dew-point.png")}
+            source={require("../../../images/professional-info/dew-point.png")}
             style={styles.iconStyle}
           />
         </View>

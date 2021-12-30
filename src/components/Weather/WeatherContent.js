@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { Text, ScrollView, View, TouchableOpacity, Image } from "react-native";
 
-import { ROUTES } from "../../Constants";
+import { ROUTES } from "../../../Constants";
 import styles from "../../styles/WeatherList/WeatherContent";
 import { getNowWeather } from "../../utils/apiUtils";
 import LivingIndices from "./LivingIndices";
@@ -64,7 +64,7 @@ const WeatherContent = props => {
       <TouchableOpacity style={styles.cardContainer} onPress={() => navigateToReward()}>
         <View style={{ flexDirection: "row" }}>
           <Image
-            source={require("../../images/reward.png")}
+            source={require("../../../images/reward.png")}
             style={{ width: 65 }}
           />
           <Text style={{ paddingVertical: 24, paddingLeft: 10 }}>作者辛苦啦，打赏一下吧^^</Text>

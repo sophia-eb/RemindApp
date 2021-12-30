@@ -1,6 +1,6 @@
 import {StyleSheet} from "react-native";
 
-import { themeColor } from "../Constants";
+import { themeColor } from "../../Constants";
 
 module.exports = StyleSheet.create({
   cardContainer: {

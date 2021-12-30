@@ -3,11 +3,11 @@ import React, { useEffect, useRef, useState } from "react";
 import { View } from "react-native";
 import Drawer from 'react-native-drawer';
 
+import SidePanel from "../../components/Weather/SidePanel";
+import WeatherContent from "../../components/Weather/WeatherContent";
 import styles from "../../styles/WeatherList/WeatherContainer";
 import { DEFAULT_CITY } from "../../utils/storage/storageKeyNames";
 import { localStorage } from "../../utils/storage/storageUtil";
-import SidePanel from "./SidePanel";
-import WeatherContent from "./WeatherContent";
 
 const drawerStyles = {
   drawer: { shadowColor: '#b8e3ff', shadowOpacity: 0.2, shadowRadius: 3},

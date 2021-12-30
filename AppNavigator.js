@@ -5,11 +5,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Text } from "react-native";
 
 import { PAGE_TITLE, ROUTES } from "./Constants";
-import AddCity from "./screens/AllCityPage/AllCityPage";
-import Home from "./screens/Home/Home";
-import RewardArea from "./screens/Reward/Reward";
-import WeatherContainer from "./screens/WeatherList/WeatherContainer";
-import { isReadyRef, navigationRef } from "./utils/navigation/RootNavigation";
+import AddCity from "./src/screens/AllCity/AllCityPage";
+import Home from "./src/screens/Home/Home";
+import RewardArea from "./src/screens/Reward/Reward";
+import WeatherContainer from "./src/screens/Weather/WeatherContainer";
+import { isReadyRef, navigationRef } from "./src/utils/navigation/RootNavigation";
 
 // const Stack = createNativeStackNavigator();
 const RootStack = createNativeStackNavigator();

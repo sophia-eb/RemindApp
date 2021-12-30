@@ -12,7 +12,7 @@ const CardTitle = props => {
         33提醒你
       </Text>
       <Image
-        source={require("../../../images/heart.png")}
+        source={require("../../../../images/heart.png")}
         style={{ width: 20, height: 20, marginTop: 10, marginHorizontal: 4 }}
       />
       <Text style={[commonStyles.cardTitle, commonStyles.textColor]}>

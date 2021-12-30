@@ -4,7 +4,7 @@ import _ from "lodash";
 import { Text, View } from "react-native";
 import SwipeOut from "react-native-swipeout";
 
-import { CITY_LIST_OBJ, CITY_LIST_OBJ1, ROUTES, themeColor } from "../../Constants";
+import { CITY_LIST_OBJ, CITY_LIST_OBJ1, ROUTES, themeColor } from "../../../Constants";
 import commonStyles from "../../styles/CommonStyles";
 import styles from "../../styles/WeatherList/WeatherContainer";
 // import { DEFAULT_CITY } from "../../utils/storage/storageKeyNames";

@@ -11,12 +11,12 @@ const RewardArea = () => {
       <View style={styles.cardContainer}>
         <View style={{ flexDirection: "row" }}>
           <Image
-            source={require("../../images/reward/love.png")}
+            source={require("../../../images/reward/love.png")}
           />
           <Text style={{ paddingVertical: 24 }}>您的支持是更新的动力❤️爱你❤️</Text>
         </View>
         <Image
-          source={require("../../images/reward/wechat.jpeg")}
+          source={require("../../../images/reward/wechat.jpeg")}
           style={{ width: 240, height: 320, marginVertical: 20 }}
         />
       </View>

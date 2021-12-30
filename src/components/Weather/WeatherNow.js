@@ -4,7 +4,7 @@ import { Image, ImageBackground, Text, View } from "react-native";
 
 // import { getSun } from "../../utils/apiUtils";
 // import Svg, { Path } from "react-native-svg";
-import { CITY_LIST_OBJ } from "../../Constants";
+import { CITY_LIST_OBJ } from "../../../Constants";
 import commonStyles from "../../styles/CommonStyles";
 import styles from "../../styles/WeatherList/WeatherContent";
 // import WeatherIcon from "../../icons/100.svg";
@@ -13,7 +13,7 @@ const WeatherNow = props => {
   const { weatherInfoNow, openControlPanel, cityId } = props;
   // const [bakImage, setBakImage] = useState("");
 
-  let image = require("../../images/day.jpeg");
+  let image = require("../../../images/day.jpeg");
 
   // useEffect(() => {
   //   getSun().then(res => {
@@ -38,7 +38,7 @@ const WeatherNow = props => {
         <View>
           <View style={{ flexDirection: "row", marginHorizontal: "40%" }}>
             <Image
-              source={require("../../images/location.png")}
+              source={require("../../../images/location.png")}
               style={{ width: 28, height: 28, marginRight: 6 }}
             />
             <Text style={[styles.centerText, commonStyles.fontSize18, commonStyles.textColor]}>
