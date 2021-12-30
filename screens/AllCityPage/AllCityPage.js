@@ -2,7 +2,7 @@ import React from "react";
 
 import { View } from "react-native";
 
-const AddCity = () => {
+const AllCityPage = () => {
 
   return (
     <View>
@@ -12,4 +12,4 @@ const AddCity = () => {
 
 };
 
-export default AddCity;
+export default AllCityPage;

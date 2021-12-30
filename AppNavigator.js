@@ -5,7 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Text } from "react-native";
 
 import { PAGE_TITLE, ROUTES } from "./Constants";
-import AddCity from "./screens/AddCity/AddCity";
+import AddCity from "./screens/AllCityPage/AllCityPage";
 import Home from "./screens/Home/Home";
 import RewardArea from "./screens/Reward/Reward";
 import WeatherContainer from "./screens/WeatherList/WeatherContainer";
