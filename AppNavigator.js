@@ -2,11 +2,10 @@ import React, { useEffect } from "react";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Text } from "react-native";
 
 import { PAGE_TITLE, ROUTES } from "./Constants";
-import AddCity from "./src/screens/AllCity/AllCityPage";
-import Home from "./src/screens/Home/Home";
+import AllCityContainer from "./src/screens/AllCity/AllCityContainer";
+// import Home from "./src/screens/Home/Home";
 import RewardArea from "./src/screens/Reward/Reward";
 import WeatherContainer from "./src/screens/Weather/WeatherContainer";
 import { isReadyRef, navigationRef } from "./src/utils/navigation/RootNavigation";
@@ -46,9 +45,9 @@ const AppNavigator = (props) => {
           options={{ headerTitle: PAGE_TITLE.WEATHER_LIST }}
         />
         <RootStack.Screen
-          name={ROUTES.ADD_CITY}
-          component={AddCity}
-          options={{ headerTitle: PAGE_TITLE.ADD_CITY }}
+          name={ROUTES.ALL_CITY}
+          component={AllCityContainer}
+          options={{ headerTitle: PAGE_TITLE.ALL_CITY }}
         />
         <RootStack.Screen
           name={ROUTES.REWARD_AREA}

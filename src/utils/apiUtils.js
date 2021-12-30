@@ -3,13 +3,6 @@ import axios from "axios";
 const nowWeatherUrl = "https://devapi.qweather.com/v7/weather/now?";
 const publicId = "HE2112211554191382";
 const key = "db11be461e024ddf890b8cf02baa548c";
-// const location = "101010100"; //beijing
-// kaifeng 101180801
-// shanghai 101020100
-// shenzhen 101280601
-// nanshan 101280604
-// suzhou 101190401
-// const location = "101280601"; //shenzhen
 
 export async function getNowWeather(cityId) {
   const url = nowWeatherUrl + "key=" + key + "&location=" + cityId;
@@ -70,6 +63,17 @@ const date = today.getFullYear() + today.getMonth() + today.getDate();
 
 export async function getSun(cityId) {
   const url = sunAstronomy + "key=" + key + "&location=" + cityId + "&date=" + date;
+
+  return axios({
+    method: "get",
+    url: url,
+  });
+}
+
+const cityLookup = "https://geoapi.qweather.com/v2/city/lookup?";
+
+export async function getCityList(location) {
+  const url = cityLookup + "key=" + key + "&location=" + location;
 
   return axios({
     method: "get",

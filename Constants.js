@@ -4,19 +4,31 @@ export const ROUTES = {
   HOME: "Home",
   WEATHER_LIST: "Weather List",
   REWARD_AREA: "Reward Area",
-  ADD_CITY: "Add City"
+  ALL_CITY: "All City"
 };
 
 export const PAGE_TITLE = {
   HOME: "城市列表",
   WEATHER_LIST: "苏工专属天气提醒",
   REWARD_AREA: "打赏页",
-  ADD_CITY: "添加城市"
+  ALL_CITY: "添加城市"
 };
 
-export const CITY_LIST_OBJ = [101280601, 101180801, 101190401];
+// export const CITY_LIST_OBJ = [101280601, 101180801, 101190401];
 
-export const CITY_LIST_OBJ1 = {
+export const CITY_LIST_OBJ = {
+  101010100: "北京",
+  101020100: "上海",
+  101280101: "广州",
+  101280601: "深圳",
+  101180801: "开封",
+  101190401: "苏州",
+};
+
+export const RECOMMEND_CITY = {
+  101010100: "北京",
+  101020100: "上海",
+  101280101: "广州",
   101280601: "深圳",
   101180801: "开封",
   101190401: "苏州",

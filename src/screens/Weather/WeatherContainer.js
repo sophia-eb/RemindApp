@@ -25,8 +25,7 @@ const WeatherContainer = props => {
         setDefaultCity(defaultCity);
       }
     }
-    setCity();
-    return () => {};
+    setCity().then();
   }, []);
 
   const closeControlPanel = () => {
