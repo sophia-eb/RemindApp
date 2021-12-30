@@ -20,7 +20,9 @@ const SidePanel = props => {
     navigation.navigate(ROUTES.WEATHER_LIST, {cityId: cityId});
   };
 
-  const navigateToCity = () => {};
+  const navigateToCity = () => {
+    navigation.navigate(ROUTES.ADD_CITY);
+  };
 
   const deleteCity = (index) => {
     const currentCityList = _.cloneDeep(cityList);

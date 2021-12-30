@@ -4,12 +4,14 @@ export const ROUTES = {
   HOME: "Home",
   WEATHER_LIST: "Weather List",
   REWARD_AREA: "Reward Area",
+  ADD_CITY: "Add City"
 };
 
 export const PAGE_TITLE = {
   HOME: "城市列表",
   WEATHER_LIST: "苏工专属天气提醒",
   REWARD_AREA: "打赏页",
+  ADD_CITY: "添加城市"
 };
 
 export const CITY_LIST_OBJ = [101280601, 101180801, 101190401];

@@ -5,10 +5,10 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Text } from "react-native";
 
 import { PAGE_TITLE, ROUTES } from "./Constants";
+import AddCity from "./screens/AddCity/AddCity";
 import Home from "./screens/Home/Home";
 import RewardArea from "./screens/Reward/Reward";
 import WeatherContainer from "./screens/WeatherList/WeatherContainer";
-import WeatherContent from "./screens/WeatherList/WeatherContent";
 import { isReadyRef, navigationRef } from "./utils/navigation/RootNavigation";
 
 // const Stack = createNativeStackNavigator();
@@ -44,6 +44,11 @@ const AppNavigator = (props) => {
           name={ROUTES.WEATHER_LIST}
           component={WeatherContainer}
           options={{ headerTitle: PAGE_TITLE.WEATHER_LIST }}
+        />
+        <RootStack.Screen
+          name={ROUTES.ADD_CITY}
+          component={AddCity}
+          options={{ headerTitle: PAGE_TITLE.ADD_CITY }}
         />
         <RootStack.Screen
           name={ROUTES.REWARD_AREA}
