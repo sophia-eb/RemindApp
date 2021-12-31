@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 
 import { Image, ImageBackground, Text, View } from "react-native";
 
+import { CITY_LIST_OBJ } from "../../../Constants";
 import commonStyles from "../../styles/CommonStyles";
 import styles from "../../styles/WeatherList/WeatherContainer";
 import { getSun } from "../../utils/apiUtils";
-import { getLocationName } from "../../utils/getLocationName";
+// import { getLocationName } from "../../utils/getLocationName";
 
 const WeatherNow = props => {
   const { weatherInfoNow, openControlPanel, cityId } = props;
@@ -41,7 +42,8 @@ const WeatherNow = props => {
               style={{ width: 28, height: 28, marginRight: 6 }}
             />
             <Text style={[styles.centerText, commonStyles.fontSize18, commonStyles.textColor]}>
-              {getLocationName[cityId]}
+              {CITY_LIST_OBJ[cityId]}
+              {/*{getLocationName[cityId]}*/}
             </Text>
           </View>
           <Text style={[styles.centerTempText, commonStyles.textColor]}>

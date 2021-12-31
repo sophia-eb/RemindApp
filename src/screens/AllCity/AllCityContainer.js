@@ -106,13 +106,13 @@ const AllCityContainer = props => {
 
   return (
     <View style={styles.cardContainer}>
-      <TextInput
-        inlineImageLeft='search_icon'
-        placeholder={"搜索城市（中文/拼音）"}
-        style={[styles.inputTextStyle, commonStyles.padding10]}
-        onFocus={() => onFocus()}
-        onChangeText={text => onChangeText(text)}
-      />
+      {/*<TextInput*/}
+      {/*  inlineImageLeft='search_icon'*/}
+      {/*  placeholder={"搜索城市（中文/拼音）"}*/}
+      {/*  style={[styles.inputTextStyle, commonStyles.padding10]}*/}
+      {/*  onFocus={() => onFocus()}*/}
+      {/*  onChangeText={text => onChangeText(text)}*/}
+      {/*/>*/}
       { isSearch && searchCities?.length > 0 ? searchCity() : recommendCity()}
     </View>
   );
