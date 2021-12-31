@@ -4,7 +4,7 @@ import { Image, Text, View } from "react-native";
 
 import commonStyles from "../../styles/CommonStyles";
 import styles from "../../styles/WeatherList/ProfessionalInfoStyles";
-import weatherListStyles from "../../styles/WeatherList/WeatherContent";
+import weatherListStyles from "../../styles/WeatherList/WeatherContainer";
 import CardTitle from "./Common/CardTitle";
 
 const ProfessionalInfo = props => {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { View } from "react-native";
 
-import styles from "../../styles/WeatherList/WeatherContent";
+import styles from "../../styles/WeatherList/WeatherContainer";
 import { get7daysWeather } from "../../utils/apiUtils";
 import CardTitle from "./Common/CardTitle";
 import CustomChart from "./Common/CustomChart";
@@ -44,7 +44,7 @@ const Weather7days = props => {
         <>
           <CardTitle cardTitleContext={"未来7天"}/>
           <View style={styles.chartContainer}>
-            {/*<CustomChart data={data}/>*/}
+            <CustomChart data={data}/>
           </View>
         </>
       }

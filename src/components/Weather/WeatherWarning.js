@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { Text, View } from "react-native";
 
-import styles from "../../styles/WeatherList/WeatherContent";
+import styles from "../../styles/WeatherList/WeatherContainer";
 import { getWeatherWarning } from "../../utils/apiUtils";
 
 

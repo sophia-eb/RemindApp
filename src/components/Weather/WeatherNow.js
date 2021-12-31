@@ -4,7 +4,7 @@ import { Image, ImageBackground, Text, View } from "react-native";
 
 import { CITY_LIST_OBJ } from "../../../Constants";
 import commonStyles from "../../styles/CommonStyles";
-import styles from "../../styles/WeatherList/WeatherContent";
+import styles from "../../styles/WeatherList/WeatherContainer";
 import { getSun } from "../../utils/apiUtils";
 
 const WeatherNow = props => {

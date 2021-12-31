@@ -12,12 +12,11 @@ import { localStorage } from "../../utils/storage/storageUtil";
 import { list2str, str2list } from "../../utils/transformListAndStr";
 
 const SidePanel = props => {
-  const {closeControlPanel, navigation, route} = props;
+  const {closeControlPanel, navigation, route, setDisplayCity} = props;
   const [cityList, setCityList] = useState([]);
 
   const selectedCities = route?.params ? route?.params.selectedCities : [];
   const selectedCitiesLength = selectedCities ? selectedCities?.length : 0;
-  // localStorage.clearMap();
 
   useEffect(() => {
     async function setCityListFunc() {
@@ -44,6 +43,10 @@ const SidePanel = props => {
     const currentCityList = _.cloneDeep(cityList);
     currentCityList.splice(index, 1);
     setCityList(currentCityList);
+    if (currentCityList.length < 1) {
+      setDisplayCity(null);
+      await localStorage.clearMap();
+    }
     await localStorage.setItem(CITY_LIST, list2str(currentCityList));
   };
 

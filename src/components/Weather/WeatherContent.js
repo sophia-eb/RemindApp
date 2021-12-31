@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Text, ScrollView, View, TouchableOpacity, Image } from "react-native";
 
 import { ROUTES } from "../../../Constants";
-import styles from "../../styles/WeatherList/WeatherContent";
+import styles from "../../styles/WeatherList/WeatherContainer";
 import { getNowWeather } from "../../utils/apiUtils";
 import LivingIndices from "./LivingIndices";
 import ProfessionalInfo from "./ProfessionalInfo";

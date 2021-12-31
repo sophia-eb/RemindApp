@@ -29,6 +29,10 @@ module.exports = StyleSheet.create({
     padding: 10,
   },
 
+  margin20: {
+    margin: 20,
+  },
+
   textColor: {
     color: themeColor.titleColor,
   },

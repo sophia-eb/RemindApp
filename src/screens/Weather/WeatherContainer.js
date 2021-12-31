@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 
-import { View } from "react-native";
+import { Text, View } from "react-native";
 import Drawer from 'react-native-drawer';
 
+import { ROUTES } from "../../../Constants";
 import SidePanel from "../../components/Weather/SidePanel";
 import WeatherContent from "../../components/Weather/WeatherContent";
+import commonStyles from "../../styles/CommonStyles";
 import styles from "../../styles/WeatherList/WeatherContainer";
 import { DEFAULT_CITY } from "../../utils/storage/storageKeyNames";
 import { localStorage } from "../../utils/storage/storageUtil";
@@ -16,10 +18,11 @@ const drawerStyles = {
 };
 
 const WeatherContainer = props => {
-  const {route} = props;
+  const {route, navigation} = props;
   const drawerEl = useRef(null);
   const [displayCity, setDisplayCity] = useState(null);
   const cityId = route?.params ? route?.params.cityId : null;
+  // localStorage.clearMap();
 
   useEffect(() => {
     async function setCity() {
@@ -35,12 +38,35 @@ const WeatherContainer = props => {
     }
   }, [cityId]);
 
+  const navigateToCity = () => {
+    navigation.navigate(ROUTES.ALL_CITY);
+  };
+
   const closeControlPanel = () => {
     drawerEl.current.close();
   };
 
   const openControlPanel = () => {
     drawerEl.current.open();
+  };
+
+  const emptyWeatherPage = () => {
+    return (
+      <View style={styles.container}>
+        <Text
+          style={[
+            styles.firstAddCityButton,
+            styles.centerText,
+            commonStyles.fontSize20,
+            commonStyles.textColor,
+            commonStyles.margin20
+          ]}
+          onPress={() => navigateToCity()}
+        >
+        点我去添加一个城市吧^^
+        </Text>
+      </View>
+    );
   };
 
   return (
@@ -50,6 +76,7 @@ const WeatherContainer = props => {
         type="overlay"
         content={
           <SidePanel
+            setDisplayCity={setDisplayCity}
             closeControlPanel={closeControlPanel}
             {...props}
           />}
@@ -62,12 +89,17 @@ const WeatherContainer = props => {
           main: { opacity:(2-ratio)/2 }
         })}
       >
-        <WeatherContent
-          displayCity={displayCity}
-          openControlPanel={openControlPanel}
-          closeControlPanel={closeControlPanel}
-          {...props}
-        />
+        { displayCity ?
+          <WeatherContent
+            displayCity={displayCity}
+            openControlPanel={openControlPanel}
+            closeControlPanel={closeControlPanel}
+            {...props}
+          />
+          :
+          emptyWeatherPage()
+        }
+
       </Drawer>
     </View>
   );
