@@ -8,7 +8,7 @@ module.exports = StyleSheet.create({
     margin: 10,
   },
   inputTextStyle: {
-    height: 40,
+    height: 45,
     backgroundColor: "#ffffff",
     borderColor: 'gray',
     borderWidth: 1,
@@ -37,7 +37,7 @@ module.exports = StyleSheet.create({
     borderColor: themeColor.grayColor,
     // borderRadius: 18,
     paddingVertical: 6,
-    paddingHorizontal: 26,
+    paddingHorizontal: 20,
     marginVertical: 4,
     marginHorizontal: 18,
   },

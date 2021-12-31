@@ -9,7 +9,7 @@ module.exports = StyleSheet.create({
   },
   bakImage: {
     flex: 1,
-    height: 420,
+    height: 440,
     justifyContent: "center",
     position: "relative",
   },

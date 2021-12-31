@@ -113,7 +113,7 @@ const CityList = props => {
         backgroundColor={themeColor.textColor}
       >
         <Text
-          style={[commonStyles.fontSize16, commonStyles.padding10]}
+          style={[commonStyles.fontSize18, commonStyles.padding10]}
           onPress={() => navigateToWeatherList(cityId)}
         >
           {CITY_LIST_OBJ[cityId]}

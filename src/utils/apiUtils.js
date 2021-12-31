@@ -59,7 +59,7 @@ export async function getLivingIndices(cityId) {
 
 const sunAstronomy = "https://devapi.qweather.com/v7/astronomy/sun?";
 const today = new Date();
-const date = today.getFullYear() + today.getMonth() + today.getDate();
+const date = `${today.getFullYear()}${today.getMonth() + 1}${today.getDate()}`;
 
 export async function getSun(cityId) {
   const url = sunAstronomy + "key=" + key + "&location=" + cityId + "&date=" + date;

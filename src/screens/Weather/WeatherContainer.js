@@ -54,7 +54,7 @@ const WeatherContainer = props => {
             {...props}
           />}
         tapToClose={true}
-        openDrawerOffset={0.6} // 60% gap on the right side of drawer
+        openDrawerOffset={0.4} // 40% gap on the right side of drawer
         panCloseMask={0.2}
         closedDrawerOffset={-3}
         styles={drawerStyles}

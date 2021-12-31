@@ -2,35 +2,34 @@ import React, { useEffect, useState } from "react";
 
 import { Image, ImageBackground, Text, View } from "react-native";
 
-// import { getSun } from "../../utils/apiUtils";
-// import Svg, { Path } from "react-native-svg";
 import { CITY_LIST_OBJ } from "../../../Constants";
 import commonStyles from "../../styles/CommonStyles";
 import styles from "../../styles/WeatherList/WeatherContent";
-// import WeatherIcon from "../../icons/100.svg";
+import { getSun } from "../../utils/apiUtils";
 
 const WeatherNow = props => {
   const { weatherInfoNow, openControlPanel, cityId } = props;
-  // const [bakImage, setBakImage] = useState("");
+  const [bakImage, setBakImage] = useState(require("../../../images/day.jpeg"));
 
-  let image = require("../../../images/day.jpeg");
-
-  // useEffect(() => {
-  //   getSun().then(res => {
-  //     console.log(res.data, "===============data============");
-  //     if (res.data.code === "200") {
-  //       if (new Date().getDate())
-  //       setBakImage(require("../../images/day.jpeg"));
-  //       setBakImage(require("../../images/night.jpeg"));
-  //     }
-  //   });
-  // });
-  // console.log(weatherInfoNow.icon, "+++++++++++++++");
+  useEffect(() => {
+    cityId && getSun(cityId).then(res => {
+      if (res.data.code === "200") {
+        const now = new Date().getTime();
+        const sunrise = new Date(res.data.sunrise).getTime();
+        const sunset = new Date(res.data.sunset).getTime();
+        if ( sunrise < now < sunset) {
+          setBakImage(require("../../../images/day.jpeg"));
+        } else {
+          setBakImage(require("../../../images/night.jpeg"));
+        }
+      }
+    });
+  }, [cityId]);
 
   return (
     <View>
       <ImageBackground
-        source={image}
+        source={bakImage}
         resizeMode="cover"
         style={styles.bakImage}
       >
@@ -94,10 +93,10 @@ const WeatherNow = props => {
           </View>
           <View style={[styles.wrapContainer, commonStyles.height36]}>
             <Text style={commonStyles.fontSize16}>
-              当前小时累计降水量
+              降水
             </Text>
             <Text style={styles.wrapTextContent}>
-              {weatherInfoNow.precip}毫米
+              {weatherInfoNow.precip}毫米/小时
             </Text>
           </View>
         </View>
