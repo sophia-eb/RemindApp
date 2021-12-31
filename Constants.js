@@ -9,7 +9,7 @@ export const ROUTES = {
 
 export const PAGE_TITLE = {
   HOME: "城市列表",
-  WEATHER_LIST: "苏工专属天气提醒",
+  WEATHER_LIST: "来自爱你的我给你的专属天气提醒",
   REWARD_AREA: "打赏页",
   ALL_CITY: "添加城市"
 };

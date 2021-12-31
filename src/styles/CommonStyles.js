@@ -14,7 +14,6 @@ module.exports = StyleSheet.create({
     padding: 14,
   },
   cardTitle: {
-    fontSize: 18,
     paddingVertical: 6,
   },
 

@@ -41,6 +41,12 @@ module.exports = StyleSheet.create({
     marginVertical: 8,
     padding: 14,
   },
+  cardTitleImg: {
+    width: 20,
+    height: 20,
+    marginVertical: 8,
+    marginHorizontal: 4
+  },
   chartContainer: {
     position: "relative",
     left: -26,
