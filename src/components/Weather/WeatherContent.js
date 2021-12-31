@@ -13,8 +13,7 @@ import WeatherNow from "./WeatherNow";
 
 
 const WeatherContent = props => {
-  const {navigation, route, openControlPanel, defaultCity} = props;
-  const cityId = route?.params ? route?.params.cityId : defaultCity;
+  const {navigation, openControlPanel, displayCity} = props;
 
   const defaultWeatherInfoNow = {
     "cloud": "0",
@@ -37,14 +36,14 @@ const WeatherContent = props => {
   const [weatherInfoNow, setWeatherInfoNow] = useState(defaultWeatherInfoNow);
 
   useEffect(() => {
-    cityId && getNowWeather(cityId).then((res) => {
+    displayCity && getNowWeather(displayCity).then((res) => {
       // console.log(res.data, "=======data=========");
       if (res.data.code === "200") {
         setWeatherInfoNow(res.data.now);
       }
     });
     return () => {};
-  }, [cityId]);
+  }, [displayCity]);
 
   const navigateToReward = () => {
     navigation.navigate(ROUTES.REWARD_AREA, {screen: ROUTES.REWARD_AREA});
@@ -55,11 +54,11 @@ const WeatherContent = props => {
       <WeatherNow
         weatherInfoNow={weatherInfoNow}
         openControlPanel={openControlPanel}
-        cityId={cityId}
+        cityId={displayCity}
       />
-      <WeatherHourly cityId={cityId}/>
-      <Weather7days cityId={cityId}/>
-      <LivingIndices cityId={cityId}/>
+      <WeatherHourly cityId={displayCity}/>
+      <Weather7days cityId={displayCity}/>
+      <LivingIndices cityId={displayCity}/>
       <ProfessionalInfo weatherInfoNow={weatherInfoNow}/>
       <TouchableOpacity style={styles.cardContainer} onPress={() => navigateToReward()}>
         <View style={{ flexDirection: "row" }}>

@@ -9,24 +9,31 @@ import styles from "../../styles/WeatherList/WeatherContainer";
 import { DEFAULT_CITY } from "../../utils/storage/storageKeyNames";
 import { localStorage } from "../../utils/storage/storageUtil";
 
+
 const drawerStyles = {
   drawer: { shadowColor: '#b8e3ff', shadowOpacity: 0.2, shadowRadius: 3},
   main: { paddingLeft: 3 },
 };
 
 const WeatherContainer = props => {
+  const {route} = props;
   const drawerEl = useRef(null);
-  const [defaultCity, setDefaultCity] = useState(null);
+  const [displayCity, setDisplayCity] = useState(null);
+  const cityId = route?.params ? route?.params.cityId : null;
 
   useEffect(() => {
     async function setCity() {
       const defaultCity = await localStorage.getItem(DEFAULT_CITY);
       if (defaultCity) {
-        setDefaultCity(defaultCity);
+        setDisplayCity(defaultCity);
       }
     }
-    setCity().then();
-  }, []);
+    if (cityId) {
+      setDisplayCity(cityId);
+    } else {
+      setCity().then();
+    }
+  }, [cityId]);
 
   const closeControlPanel = () => {
     drawerEl.current.close();
@@ -56,7 +63,7 @@ const WeatherContainer = props => {
         })}
       >
         <WeatherContent
-          defaultCity={defaultCity}
+          displayCity={displayCity}
           openControlPanel={openControlPanel}
           closeControlPanel={closeControlPanel}
           {...props}

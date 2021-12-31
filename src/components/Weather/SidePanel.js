@@ -12,21 +12,24 @@ import { localStorage } from "../../utils/storage/storageUtil";
 import { list2str, str2list } from "../../utils/transformListAndStr";
 
 const SidePanel = props => {
-  const {closeControlPanel, navigation} = props;
+  const {closeControlPanel, navigation, route} = props;
   const [cityList, setCityList] = useState([]);
+
+  const selectedCities = route?.params ? route?.params.selectedCities : [];
+  const selectedCitiesLength = selectedCities ? selectedCities?.length : 0;
+  // localStorage.clearMap();
 
   useEffect(() => {
     async function setCityListFunc() {
       const res = await localStorage.getItem(CITY_LIST);
       setCityList(str2list(res));
     }
-    setCityListFunc().then();
-    return () => {};
-  }, []);
-
-  // useEffect(() => {
-  //   console.log(cityList, "========cityList===========");
-  // }, [cityList]);
+    if (selectedCities && selectedCities.length > 0) {
+      setCityList(selectedCities);
+    } else {
+      setCityListFunc().then();
+    }
+  }, [selectedCitiesLength]);
 
   const navigateToWeatherList = async (cityId) => {
     closeControlPanel();
