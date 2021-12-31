@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import _ from "lodash";
 import { FlatList, Text, TextInput, View } from "react-native";
@@ -7,6 +7,7 @@ import { RECOMMEND_CITY, ROUTES } from "../../../Constants";
 import styles from "../../styles/City/AllCityContainer";
 import commonStyles from "../../styles/CommonStyles";
 import { getCityList } from "../../utils/apiUtils";
+import { getLocationName } from "../../utils/getLocationName";
 import { CITY_LIST, DEFAULT_CITY } from "../../utils/storage/storageKeyNames";
 import { localStorage } from "../../utils/storage/storageUtil";
 import { list2str, str2list } from "../../utils/transformListAndStr";
@@ -14,6 +15,7 @@ import { list2str, str2list } from "../../utils/transformListAndStr";
 
 const AllCityContainer = props => {
   const { navigation } = props;
+  const [isSearch, setIsSearch] = useState(false);
   const [selectedCities, setSelectedCities] = React.useState([]);
   const [searchCities, setSearchCities] = React.useState([]);
 
@@ -98,15 +100,20 @@ const AllCityContainer = props => {
     );
   };
 
+  const onFocus = () => {
+    setIsSearch(true);
+  };
+
   return (
     <View style={styles.cardContainer}>
       <TextInput
         inlineImageLeft='search_icon'
         placeholder={"搜索城市（中文/拼音）"}
         style={[styles.inputTextStyle, commonStyles.padding10]}
+        onFocus={() => onFocus()}
         onChangeText={text => onChangeText(text)}
       />
-      { searchCities.length > 0 ? searchCity() : recommendCity()}
+      { isSearch && searchCities?.length > 0 ? searchCity() : recommendCity()}
     </View>
   );
 };
