@@ -99,10 +99,6 @@ const AllCityContainer = props => {
     setIsSearch(true);
   };
 
-  useEffect(() => {
-    console.log(isSearch, searchCities, "==========isSearch===========");
-  }, [isSearch]);
-
   return (
     <View style={styles.cardContainer}>
       <TextInput
