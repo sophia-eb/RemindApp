@@ -17,7 +17,7 @@ const WeatherNow = props => {
         const now = new Date().getTime();
         const sunrise = new Date(res.data.sunrise).getTime();
         const sunset = new Date(res.data.sunset).getTime();
-        if ( sunrise < now < sunset) {
+        if ( sunrise < now && now < sunset) {
           setBakImage(require("../../../images/day.jpeg"));
         } else {
           setBakImage(require("../../../images/night.jpeg"));
