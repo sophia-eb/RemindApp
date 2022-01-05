@@ -2,11 +2,10 @@ import React, { useEffect, useState } from "react";
 
 import { Image, ImageBackground, Text, View } from "react-native";
 
-import { CITY_LIST_OBJ } from "../../../Constants";
 import commonStyles from "../../styles/CommonStyles";
 import styles from "../../styles/WeatherList/WeatherContainer";
 import { getSun } from "../../utils/apiUtils";
-// import { getLocationName } from "../../utils/getLocationName";
+import { getLocationName } from "../../utils/getLocationName";
 
 const WeatherNow = props => {
   const { weatherInfoNow, openControlPanel, cityId } = props;
@@ -25,6 +24,7 @@ const WeatherNow = props => {
         }
       }
     });
+    return () => {};
   }, [cityId]);
 
   return (
@@ -42,23 +42,13 @@ const WeatherNow = props => {
               style={{ width: 28, height: 28, marginRight: 6 }}
             />
             <Text style={[styles.centerText, commonStyles.fontSize18, commonStyles.textColor]}>
-              {CITY_LIST_OBJ[cityId]}
-              {/*{getLocationName[cityId]}*/}
+              {cityId && getLocationName(cityId)}
             </Text>
           </View>
           <Text style={[styles.centerTempText, commonStyles.textColor]}>
             {weatherInfoNow.temp}°C
           </Text>
           <Text style={[styles.centerText, commonStyles.fontSize18, commonStyles.textColor]}>
-            {/*<View>*/}
-            {/*  <Svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#ffffff" className="qi-100"*/}
-            {/*       viewBox="0 0 16 16">*/}
-            {/*    <Path*/}
-            {/*      d="M8.005 4.5a3.5 3.5 0 1 1-3.5 3.5 3.504 3.504 0 0 1 3.5-3.5m0-1a4.5 4.5 0 1 0 4.5 4.5 4.5 4.5 0 0 0-4.5-4.5zm.001-.997a.5.5 0 0 1-.5-.5v-1.5a.5.5 0 1 1 1 0v1.5a.5.5 0 0 1-.5.5z" />*/}
-            {/*    <Path*/}
-            {/*      d="M8.006 2.503a.5.5 0 0 1-.5-.5v-1.5a.5.5 0 1 1 1 0v1.5a.5.5 0 0 1-.5.5zM3.765 4.255a.498.498 0 0 1-.353-.147L2.35 3.048a.5.5 0 0 1 .707-.707L4.12 3.4a.5.5 0 0 1-.354.854zM2.003 8.493h-1.5a.5.5 0 0 1 0-1h1.5a.5.5 0 0 1 0 1zm.691 5.303a.5.5 0 0 1-.354-.854l1.062-1.06a.5.5 0 0 1 .707.707l-1.062 1.06a.498.498 0 0 1-.353.147zm5.299 2.201a.5.5 0 0 1-.5-.5v-1.5a.5.5 0 0 1 1 0v1.5a.5.5 0 0 1-.5.5zm5.302-2.191a.498.498 0 0 1-.353-.147l-1.06-1.06a.5.5 0 1 1 .706-.707l1.06 1.06a.5.5 0 0 1-.353.854zm2.202-5.299h-1.5a.5.5 0 1 1 0-1h1.5a.5.5 0 0 1 0 1zm-3.252-4.242a.5.5 0 0 1-.354-.854l1.06-1.06a.5.5 0 0 1 .708.707l-1.06 1.06a.498.498 0 0 1-.354.147z" />*/}
-            {/*  </Svg>*/}
-            {/*</View>*/}
             {weatherInfoNow.text}
           </Text>
           <View style={[styles.wrapContainer, commonStyles.height36]}>

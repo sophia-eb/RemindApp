@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 
 import { Text, View } from "react-native";
 import Drawer from 'react-native-drawer';
@@ -86,7 +86,7 @@ const WeatherContainer = props => {
           main: { opacity:(2-ratio)/2 }
         })}
       >
-        { cityList.length > 0 ?
+        { cityList?.length > 0 ?
           <WeatherContent
             displayCity={displayCity}
             openControlPanel={openControlPanel}

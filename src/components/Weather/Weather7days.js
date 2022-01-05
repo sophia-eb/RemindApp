@@ -29,7 +29,7 @@ const Weather7days = props => {
   }, [props.cityId]);
 
   let data = [];
-  weatherInfo7d.forEach(item => {
+  weatherInfo7d.length > 0 && weatherInfo7d.forEach(item => {
     const re = new RegExp(".+-(.+-.+)");
     const time = item.fxDate.match(re);
     const maxTemp = Math.round(item.tempMax);
@@ -39,7 +39,7 @@ const Weather7days = props => {
 
   return (
     <View style={styles.cardContainer}>
-      { weatherInfo7dError ?
+      { weatherInfo7dError || data?.length < 1 ?
         <ErrorMessage /> :
         <>
           <CardTitle cardTitleContext={"未来7天"}/>

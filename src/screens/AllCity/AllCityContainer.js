@@ -8,7 +8,6 @@ import { setCurrentCity, setCurrentCityList } from "../../actions";
 import styles from "../../styles/City/AllCityContainer";
 import commonStyles from "../../styles/CommonStyles";
 import { getCityList } from "../../utils/apiUtils";
-// import { getLocationName } from "../../utils/getLocationName";
 
 
 const AllCityContainer = props => {
@@ -44,7 +43,12 @@ const AllCityContainer = props => {
 
   const renderSearchItem = ({ item }) => (
     <View style={styles.searchItemStyle} key={`search-${item}`}>
-      <Text style={commonStyles.fontSize20}>{item.name}</Text>
+      <Text
+        style={[commonStyles.fontSize20, styles.cityName]}
+        onPress={() => navigateToWeather(item.id)}
+      >
+        {item.name}
+      </Text>
       <Text>{`${item.country}, ${item.adm1}, ${item.adm2}`}</Text>
     </View>
   );

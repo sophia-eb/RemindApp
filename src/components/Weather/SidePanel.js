@@ -4,11 +4,11 @@ import _ from "lodash";
 import { Text, View } from "react-native";
 import SwipeOut from "react-native-swipeout";
 
-import { CITY_LIST_OBJ, ROUTES, themeColor } from "../../../Constants";
+import { ROUTES, themeColor } from "../../../Constants";
 import { setCurrentCity, setCurrentCityList } from "../../actions";
 import commonStyles from "../../styles/CommonStyles";
 import styles from "../../styles/WeatherList/WeatherContainer";
-// import { getLocationName } from "../../utils/getLocationName";
+import { getLocationName } from "../../utils/getLocationName";
 import { localStorage } from "../../utils/storage/storageUtil";
 
 const SidePanel = props => {
@@ -38,7 +38,6 @@ const SidePanel = props => {
     currentCityList.unshift(currentCityList.splice(index , 1)[0]);
     await setCurrentCityList(currentCityList);
   };
-
 
   return (
     <View style={styles.controlPanel}>
@@ -101,8 +100,7 @@ const CityList = props => {
           style={[commonStyles.fontSize18, commonStyles.padding10]}
           onPress={() => navigateToWeatherList(cityId)}
         >
-          {CITY_LIST_OBJ[cityId]}
-          {/*{getLocationName(cityId)}*/}
+          {getLocationName(cityId)}
         </Text>
       </SwipeOut>
     );

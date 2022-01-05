@@ -38,7 +38,7 @@ const WeatherHourly = props => {
 
   return (
     <View style={styles.cardContainer}>
-      { weatherInfo24hError ?
+      { weatherInfo24hError || data?.length < 1 ?
         <ErrorMessage /> :
         <>
           <CardTitle cardTitleContext={"逐小时预报"}/>

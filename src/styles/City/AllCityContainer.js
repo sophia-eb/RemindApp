@@ -28,6 +28,9 @@ module.exports = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 4,
   },
+  cityName: {
+    width: "100%"
+  },
   recommendCityContent: {
     justifyContent: "center",
   },

@@ -10,7 +10,7 @@ const weatherReducer = (state = initialState, action) => {
     case SET_DEFAULT_CITY:
       return {
         ...state,
-        currentCity: action.currentCity
+        currentCity: action.city
       };
     case SET_CITY_LIST:
       return {
