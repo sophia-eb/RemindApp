@@ -1,0 +1,2 @@
+export const SET_CITY_LIST = "SET_CITY_LIST";
+export const SET_DEFAULT_CITY = "SET_DEFAULT_CITY";

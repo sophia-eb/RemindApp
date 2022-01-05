@@ -1,45 +1,37 @@
 import React, { useEffect, useState } from "react";
 
-import _ from "lodash";
 import { FlatList, Text, TextInput, View } from "react-native";
+import { useSelector } from "react-redux";
 
 import { RECOMMEND_CITY, ROUTES } from "../../../Constants";
+import { setCurrentCity, setCurrentCityList } from "../../actions";
 import styles from "../../styles/City/AllCityContainer";
 import commonStyles from "../../styles/CommonStyles";
 import { getCityList } from "../../utils/apiUtils";
-import { getLocationName } from "../../utils/getLocationName";
-import { CITY_LIST, DEFAULT_CITY } from "../../utils/storage/storageKeyNames";
-import { localStorage } from "../../utils/storage/storageUtil";
-import { list2str, str2list } from "../../utils/transformListAndStr";
+// import { getLocationName } from "../../utils/getLocationName";
 
 
 const AllCityContainer = props => {
   const { navigation } = props;
   const [isSearch, setIsSearch] = useState(false);
-  const [selectedCities, setSelectedCities] = React.useState([]);
   const [searchCities, setSearchCities] = React.useState([]);
 
+  const cityList = useSelector(state => state.cityList);
+
   useEffect(() => {
-    async function setSelected() {
-      const res = await localStorage.getItem(CITY_LIST);
-      const currentCityList = _.cloneDeep(str2list(res));
-      setSelectedCities(currentCityList);
-    }
-    setSelected().then();
-    return () => {};
+    getCityList().then();
   }, []);
 
   const navigateToWeather = async (cityId) => {
-    const isSelected = selectedCities.indexOf(cityId);
+    const isSelected = cityList.indexOf(cityId);
     if (isSelected !== -1) return;
-    selectedCities.push(cityId);
-    await localStorage.setItem(DEFAULT_CITY, selectedCities[0]);
-    await localStorage.setItem(CITY_LIST, list2str(selectedCities));
+    cityList.push(cityId);
+    await setCurrentCity(cityList[0]);
+    await setCurrentCityList(cityList);
     navigation.navigate(
       ROUTES.WEATHER_LIST,
       {
         cityId: cityId,
-        selectedCities: selectedCities
       }
     );
   };
@@ -71,7 +63,7 @@ const AllCityContainer = props => {
   );
 
   const renderRecommendItem = ({item}) => {
-    const isSelected = selectedCities.indexOf(item);
+    const isSelected = cityList.indexOf(item);
     return (
       <Text
         style={[isSelected !== -1 && styles.hideItemStyle, styles.recommendItemStyle, commonStyles.fontSize18]}
@@ -116,6 +108,10 @@ const AllCityContainer = props => {
       { isSearch && searchCities?.length > 0 ? searchCity() : recommendCity()}
     </View>
   );
+};
+
+AllCityContainer.propTypes = {
+  navigation: () => {},
 };
 
 export default AllCityContainer;

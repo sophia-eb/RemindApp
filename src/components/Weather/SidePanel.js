@@ -1,35 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 import _ from "lodash";
 import { Text, View } from "react-native";
 import SwipeOut from "react-native-swipeout";
 
 import { CITY_LIST_OBJ, ROUTES, themeColor } from "../../../Constants";
+import { setCurrentCity, setCurrentCityList } from "../../actions";
 import commonStyles from "../../styles/CommonStyles";
 import styles from "../../styles/WeatherList/WeatherContainer";
 // import { getLocationName } from "../../utils/getLocationName";
-import { CITY_LIST } from "../../utils/storage/storageKeyNames";
 import { localStorage } from "../../utils/storage/storageUtil";
-import { list2str, str2list } from "../../utils/transformListAndStr";
 
 const SidePanel = props => {
-  const {closeControlPanel, navigation, route, setDisplayCity} = props;
-  const [cityList, setCityList] = useState([]);
-
-  const selectedCities = route?.params ? route?.params.selectedCities : [];
-  const selectedCitiesLength = selectedCities ? selectedCities?.length : 0;
-
-  useEffect(() => {
-    async function setCityListFunc() {
-      const res = await localStorage.getItem(CITY_LIST);
-      setCityList(str2list(res));
-    }
-    if (selectedCities && selectedCities.length > 0) {
-      setCityList(selectedCities);
-    } else {
-      setCityListFunc().then();
-    }
-  }, [selectedCitiesLength]);
+  const {closeControlPanel, navigation, cityList} = props;
 
   const navigateToWeatherList = async (cityId) => {
     closeControlPanel();
@@ -43,19 +26,17 @@ const SidePanel = props => {
   const deleteCity = async (index) => {
     const currentCityList = _.cloneDeep(cityList);
     currentCityList.splice(index, 1);
-    setCityList(currentCityList);
+    await setCurrentCityList(currentCityList);
     if (currentCityList.length < 1) {
-      setDisplayCity(null);
+      await setCurrentCity(null);
       await localStorage.clearMap();
     }
-    await localStorage.setItem(CITY_LIST, list2str(currentCityList));
   };
 
   const topCity = async (index) => {
     const currentCityList = _.cloneDeep(cityList);
     currentCityList.unshift(currentCityList.splice(index , 1)[0]);
-    setCityList(currentCityList);
-    await localStorage.setItem(CITY_LIST, list2str(currentCityList));
+    await setCurrentCityList(currentCityList);
   };
 
 

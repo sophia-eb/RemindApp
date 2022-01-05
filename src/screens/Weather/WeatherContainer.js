@@ -2,14 +2,14 @@ import React, { useEffect, useRef, useState } from "react";
 
 import { Text, View } from "react-native";
 import Drawer from 'react-native-drawer';
+import { useSelector } from "react-redux";
 
 import { ROUTES } from "../../../Constants";
+import { getCityList, getCurrentCity } from "../../actions";
 import SidePanel from "../../components/Weather/SidePanel";
 import WeatherContent from "../../components/Weather/WeatherContent";
 import commonStyles from "../../styles/CommonStyles";
 import styles from "../../styles/WeatherList/WeatherContainer";
-import { DEFAULT_CITY } from "../../utils/storage/storageKeyNames";
-import { localStorage } from "../../utils/storage/storageUtil";
 
 
 const drawerStyles = {
@@ -20,23 +20,18 @@ const drawerStyles = {
 const WeatherContainer = props => {
   const {route, navigation} = props;
   const drawerEl = useRef(null);
-  const [displayCity, setDisplayCity] = useState(null);
   const cityId = route?.params ? route?.params.cityId : null;
   // localStorage.clearMap();
 
+  const cityList = useSelector(state => state.cityList);
+  const currentCity = useSelector(state => state.currentCity);
+
+  const displayCity = cityId ? cityId : currentCity;
+
   useEffect(() => {
-    async function setCity() {
-      const defaultCity = await localStorage.getItem(DEFAULT_CITY);
-      if (defaultCity) {
-        setDisplayCity(defaultCity);
-      }
-    }
-    if (cityId) {
-      setDisplayCity(cityId);
-    } else {
-      setCity().then();
-    }
-  }, [cityId]);
+    getCityList().then();
+    getCurrentCity().then();
+  }, []);
 
   const navigateToCity = () => {
     navigation.navigate(ROUTES.ALL_CITY);
@@ -76,7 +71,7 @@ const WeatherContainer = props => {
         type="overlay"
         content={
           <SidePanel
-            setDisplayCity={setDisplayCity}
+            cityList={cityList}
             closeControlPanel={closeControlPanel}
             {...props}
           />}
@@ -103,6 +98,11 @@ const WeatherContainer = props => {
       </Drawer>
     </View>
   );
+};
+
+WeatherContainer.defaultProps = {
+  route: {},
+  navigation: () => {},
 };
 
 export default WeatherContainer;
