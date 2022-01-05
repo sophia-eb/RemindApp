@@ -21,17 +21,19 @@ const WeatherContainer = props => {
   const {route, navigation} = props;
   const drawerEl = useRef(null);
   const cityId = route?.params ? route?.params.cityId : null;
-  // localStorage.clearMap();
 
   const cityList = useSelector(state => state.cityList);
   const currentCity = useSelector(state => state.currentCity);
 
   const displayCity = cityId ? cityId : currentCity;
 
+  // localStorage.clearMap();
+  // console.log(cityId, currentCity, displayCity, cityList);
+
   useEffect(() => {
     getCityList().then();
     getCurrentCity().then();
-  }, []);
+  }, [cityId]);
 
   const navigateToCity = () => {
     navigation.navigate(ROUTES.ALL_CITY);
@@ -84,7 +86,7 @@ const WeatherContainer = props => {
           main: { opacity:(2-ratio)/2 }
         })}
       >
-        { displayCity ?
+        { cityList.length > 0 ?
           <WeatherContent
             displayCity={displayCity}
             openControlPanel={openControlPanel}
