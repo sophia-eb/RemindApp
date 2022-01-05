@@ -43,7 +43,7 @@ const AllCityContainer = props => {
   };
 
   const renderSearchItem = ({ item }) => (
-    <View style={styles.searchItemStyle}>
+    <View style={styles.searchItemStyle} key={`search-${item}`}>
       <Text style={commonStyles.fontSize20}>{item.name}</Text>
       <Text>{`${item.country}, ${item.adm1}, ${item.adm2}`}</Text>
     </View>
@@ -54,6 +54,7 @@ const AllCityContainer = props => {
       <Text style={[commonStyles.fontSize16, commonStyles.padding10]}>全部城市</Text>
       <View style={styles.searchCityContent}>
         <FlatList
+          key={"search-city"}
           refreshing={true}
           data={searchCities}
           renderItem={renderSearchItem}
@@ -68,6 +69,7 @@ const AllCityContainer = props => {
       <Text
         style={[isSelected !== -1 && styles.hideItemStyle, styles.recommendItemStyle, commonStyles.fontSize18]}
         onPress={() => navigateToWeather(item)}
+        key={`search-${item}`}
       >
         {RECOMMEND_CITY[item]}
       </Text>
@@ -80,6 +82,7 @@ const AllCityContainer = props => {
         <Text style={[commonStyles.fontSize16, commonStyles.padding10]}>推荐城市</Text>
         <View>
           <FlatList
+            key={"recommend-city"}
             refreshing={true}
             horizontal={false}
             numColumns={3}
@@ -96,15 +99,19 @@ const AllCityContainer = props => {
     setIsSearch(true);
   };
 
+  useEffect(() => {
+    console.log(isSearch, searchCities, "==========isSearch===========");
+  }, [isSearch]);
+
   return (
     <View style={styles.cardContainer}>
-      {/*<TextInput*/}
-      {/*  inlineImageLeft='search_icon'*/}
-      {/*  placeholder={"搜索城市（中文/拼音）"}*/}
-      {/*  style={[styles.inputTextStyle, commonStyles.padding10]}*/}
-      {/*  onFocus={() => onFocus()}*/}
-      {/*  onChangeText={text => onChangeText(text)}*/}
-      {/*/>*/}
+      <TextInput
+        inlineImageLeft='search_icon'
+        placeholder={"搜索城市（中文/拼音）"}
+        style={[styles.inputTextStyle, commonStyles.padding10]}
+        onFocus={() => onFocus()}
+        onChangeText={text => onChangeText(text)}
+      />
       { isSearch && searchCities?.length > 0 ? searchCity() : recommendCity()}
     </View>
   );
