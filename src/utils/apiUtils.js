@@ -77,7 +77,7 @@ export async function getSun(cityId) {
 const cityLookup = "https://geoapi.qweather.com/v2/city/lookup?";
 
 export async function getCityList(location) {
-  const url = cityLookup + "key=" + key + "&location=" + location;
+  const url = cityLookup + "key=" + key + "&location=" + location + "&range=cn";
 
   return axios({
     method: "get",
