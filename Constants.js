@@ -44,6 +44,7 @@ const themeColorOne = {
   textColorBlue: "#0583d2",
   textColorLightBlue: "#4fd6f7",
   textColor: "#b8e3ff",
+  backgroundColor: "#b8e3ff80",
 };
 
 export const themeColor = themeColorOne;

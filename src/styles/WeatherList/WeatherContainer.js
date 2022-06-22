@@ -99,11 +99,27 @@ module.exports = StyleSheet.create({
     borderColor: themeColor.textColorBlue,
     backgroundColor: themeColor.textColor,
     ...Platform.select({
-       ios: { lineHeight: 38},
+      ios: { lineHeight: 38},
       android: {}
     })
   },
   firstAddCityButton: {
     textDecorationLine: "underline",
+  },
+  tempCard: {
+    left: 0,
+    backgroundColor: themeColor.backgroundColor,
+    borderRadius: 10,
+    paddingVertical: 10,
+  },
+  tempCardContent: {
+    width: 62,
+    height: 96,
+    padding: 4,
+    borderWidth: 0.5,
+    borderColor: themeColor.lightGrayColor,
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
 });

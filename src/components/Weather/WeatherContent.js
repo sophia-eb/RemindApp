@@ -8,7 +8,8 @@ import { getNowWeather } from "../../utils/apiUtils";
 import LivingIndices from "./LivingIndices";
 import ProfessionalInfo from "./ProfessionalInfo";
 import Weather7days from "./Weather7days";
-import WeatherHourly from "./WeatherHourly";
+// import WeatherHourly from "./WeatherHourly";
+import WeatherHourlyCard from "./WeatherHourlyCard";
 import WeatherNow from "./WeatherNow";
 
 
@@ -56,7 +57,8 @@ const WeatherContent = props => {
         openControlPanel={openControlPanel}
         cityId={displayCity}
       />
-      <WeatherHourly cityId={displayCity}/>
+      {/*<WeatherHourly cityId={displayCity}/>*/}
+      <WeatherHourlyCard cityId={displayCity}/>
       <Weather7days cityId={displayCity}/>
       <LivingIndices cityId={displayCity}/>
       <ProfessionalInfo weatherInfoNow={weatherInfoNow}/>
